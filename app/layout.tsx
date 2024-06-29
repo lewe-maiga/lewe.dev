@@ -21,7 +21,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={cn("font-sans antialiased", poppins.variable)}>{children}</body>
+			<body className={cn("font-sans antialiased overflow-visible h-full ", poppins.variable)}>
+				{/* <ThemeProvider attribute="class" defaultTheme="dark"> */}
+				{children}
+				{/* </ThemeProvider> */}
+			</body>
 		</html>
 	);
 }
