@@ -30,11 +30,6 @@ const Post = defineDocumentType(() => ({
 			description: "The tags of the post",
 			required: true,
 		},
-		githubLink: {
-			type: "string",
-			description: "The github link of the post",
-			required: false,
-		},
 	},
 }));
 
