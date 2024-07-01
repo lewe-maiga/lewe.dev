@@ -14,9 +14,13 @@ const poppins = Poppins({
 export const metadata: Metadata = {
 	title: "Lewe Maiga",
 	description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
+
 	openGraph: {
 		title: "Lewe Maiga",
 		description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
+		url: "https://lewe.dev",
+		siteName: "Lewe Maiga",
+		countryName: "Morocco",
 		images: [
 			{
 				url: "https://lewe.dev/og-image.jpg",
