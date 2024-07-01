@@ -15,6 +15,19 @@ export const metadata: Metadata = {
 	title: "Lewe Maiga",
 	description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
 
+	twitter: {
+		card: "summary_large_image",
+		title: "Lewe Maiga",
+		description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
+		images: [
+			{
+				url: "https://lewe.dev/og.png",
+				width: 583,
+				height: 450,
+			},
+		],
+	},
+
 	openGraph: {
 		title: "Lewe Maiga",
 		description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
