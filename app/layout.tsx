@@ -2,10 +2,10 @@ import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const openSans = Open_Sans({
+const poppins = Poppins({
 	subsets: ["latin"],
 	weight: ["400"],
 	variable: "--font-sans",
@@ -53,7 +53,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={cn("font-sans antialiased overflow-visible h-full ", openSans.variable)}>
+			<body className={cn("font-sans antialiased overflow-visible h-full ", poppins.variable)}>
 				{/* <ThemeProvider attribute="class" defaultTheme="dark"> */}
 				{children}
 				{/* </ThemeProvider> */}
