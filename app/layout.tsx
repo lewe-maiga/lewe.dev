@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 	description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
 
 	twitter: {
-		card: "summary_large_image",
+		card: "summary",
 		title: "Lewe Maiga",
 		description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
 		images: [
