@@ -1,27 +1,18 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Box, Clipboard, File, Signature, TableColumnsSplit } from "lucide-react";
+import { Box, File, SendToBackIcon, Signature, TableColumnsSplit } from "lucide-react";
 import Image from "next/image";
-import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
+import React from "react";
+import { StrapiIcon } from "./icons/strapi";
+import { Badge } from "./ui/badge";
+import { Card, CardContent, CardDescription, CardFooter, CardTitle } from "./ui/card";
 
 export const BentoGrid = ({ className, children }: { className?: string; children?: React.ReactNode }) => {
 	return <div className={cn("grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto ", className)}>{children}</div>;
 };
 
-export const BentoGridItem = ({
-	className,
-	title,
-	description,
-	header,
-	icon,
-}: {
-	className?: string;
-	title?: string | React.ReactNode;
-	description?: string | React.ReactNode;
-	header?: React.ReactNode;
-	icon?: React.ReactNode;
-}) => {
+export const BentoGridItem = ({ className, title, description, header, icon, tag, url }: Item) => {
 	return (
 		<Card
 			className={cn(
@@ -30,11 +21,12 @@ export const BentoGridItem = ({
 			)}
 		>
 			{header}
-			<CardContent className="group-hover/bento:translate-x-2 max-md:space-y-3 transition duration-200 p-0">
+			<CardContent className="group-hover/bento:translate-x-2 max-md:space-y-3 transition duration-200 px-0 pb-0">
 				{icon}
-				<CardTitle className="font-sans font-bold mb-2 mt-2">{title}</CardTitle>
+				<CardTitle className="font-sans font-bold text-base mb-2 mt-2">{title}</CardTitle>
 				<CardDescription className="font-sans font-normal ">{description}</CardDescription>
 			</CardContent>
+			<CardFooter className="px-0 flex items-center justify-between pb-0 ">{tag}</CardFooter>
 		</Card>
 	);
 };
@@ -50,6 +42,8 @@ export function BentoGridThirdDemo() {
 					header={item.header}
 					className={cn("[&>p:text-lg]", item.className)}
 					icon={item.icon}
+					tag={item.tag}
+					url={item.url}
 				/>
 			))}
 		</BentoGrid>
@@ -59,46 +53,30 @@ export function BentoGridThirdDemo() {
 const SkeletonOne = () => {
 	const variants = {
 		initial: {
-			x: 0,
+			backgroundPosition: "0 50%",
 		},
 		animate: {
-			x: 10,
-			rotate: 5,
-			transition: {
-				duration: 0.2,
-			},
+			backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
 		},
 	};
-	const variantsSecond = {
-		initial: {
-			x: 0,
-		},
-		animate: {
-			x: -10,
-			rotate: -5,
-			transition: {
-				duration: 0.2,
-			},
-		},
-	};
-
 	return (
 		<motion.div
 			initial="initial"
-			whileHover="animate"
-			className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+			animate="animate"
+			variants={variants}
+			transition={{
+				duration: 5,
+				repeat: Infinity,
+				repeatType: "reverse",
+			}}
+			className="flex flex-1 w-full h-full md:min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2 min-h-[12rem] "
+			style={{
+				background: "linear-gradient(-45deg, #4945FF, #fff, #fff, #9593FF)",
+				backgroundSize: "400% 400%",
+			}}
 		>
-			<motion.div variants={variants} className="flex flex-row rounded-full border p-2  items-center space-x-2 bg-background">
-				<div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-				<div className="w-full bg-muted h-4 rounded-full " />
-			</motion.div>
-			<motion.div variants={variantsSecond} className="flex flex-row rounded-full border p-2 items-center space-x-2 w-3/4 ml-auto bg-background">
-				<div className="w-full bg-muted h-4 rounded-full " />
-				<div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-			</motion.div>
-			<motion.div variants={variants} className="flex flex-row rounded-full border  p-2 items-center space-x-2 bg-background">
-				<div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-				<div className="w-full bg-muted h-4 rounded-full " />
+			<motion.div className="h-full w-full rounded-lg flex items-center justify-center animate-pulse ">
+				<StrapiIcon className="size-24" />
 			</motion.div>
 		</motion.div>
 	);
@@ -106,39 +84,30 @@ const SkeletonOne = () => {
 const SkeletonTwo = () => {
 	const variants = {
 		initial: {
-			width: 0,
+			scale: 1,
 		},
 		animate: {
-			width: "100%",
-			transition: {
-				duration: 0.2,
-			},
+			scale: 1,
 		},
 		hover: {
-			width: ["0%", "100%"],
-			transition: {
-				duration: 2,
-			},
+			scale: 1.02,
 		},
 	};
-	const arr = new Array(6).fill(0);
 	return (
-		<motion.div
-			initial="initial"
-			animate="animate"
-			whileHover="hover"
-			className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
-		>
-			{arr.map((_, i) => (
-				<motion.div
-					key={"skelenton-two" + i}
-					variants={variants}
-					style={{
-						maxWidth: Math.random() * (100 - 40) + 40 + "%",
-					}}
-					className="flex flex-row rounded-full border  p-2  items-center space-x-2 bg-muted w-full h-4"
-				></motion.div>
-			))}
+		<motion.div className="flex flex-1 w-full h-full min-h-[6rem] flex-col rounded-xl relative">
+			<motion.div
+				className="overflow-hidden border relative h-full w-full rounded-[inherit]"
+				initial="initial"
+				animate="animate"
+				variants={variants}
+				whileHover={"hover"}
+				transition={{
+					duration: 0.5,
+					repeatType: "reverse",
+				}}
+			>
+				<Image src="/online-library-front.jpg" alt="Online Library Preview" fill className="object-cover" />
+			</motion.div>
 		</motion.div>
 	);
 };
@@ -200,36 +169,18 @@ const SkeletonFour = () => {
 			className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2"
 		>
 			<motion.div variants={first} className="h-full w-1/3 rounded-2xl bg-background p-4  border  flex flex-col items-center justify-center">
-				<Image
-					src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-					alt="avatar"
-					height="100"
-					width="100"
-					className="rounded-full h-10 w-10"
-				/>
-				<p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">Just code in Vanilla Javascript</p>
+				<Image src="/profile.jpg" alt="avatar" height="100" width="100" className="rounded-full h-10 w-10" />
+				<p className="sm:text-sm text-xs text-center font-semibold text-muted-foreground mt-4">Just code in Vanilla Javascript</p>
 				<p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">Delusional</p>
 			</motion.div>
 			<motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-background p-4 ] border flex flex-col items-center justify-center">
-				<Image
-					src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-					alt="avatar"
-					height="100"
-					width="100"
-					className="rounded-full h-10 w-10"
-				/>
-				<p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">Tailwind CSS is cool, you know</p>
+				<Image src="/profile.jpg" alt="avatar" height="100" width="100" className="rounded-full h-10 w-10" />
+				<p className="sm:text-sm text-xs text-center font-semibold text-muted-foreground mt-4">Tailwind CSS is cool, you know</p>
 				<p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">Sensible</p>
 			</motion.div>
 			<motion.div variants={second} className="h-full w-1/3 rounded-2xl p-4 bg-background border  flex flex-col items-center justify-center">
-				<Image
-					src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-					alt="avatar"
-					height="100"
-					width="100"
-					className="rounded-full h-10 w-10"
-				/>
-				<p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">I love angular, RSC, and Redux.</p>
+				<Image src="/profile.jpg" alt="avatar" height="100" width="100" className="rounded-full h-10 w-10" />
+				<p className="sm:text-sm text-xs text-center font-semibold text-muted-foreground mt-4">I love angular, RSC, and Redux.</p>
 				<p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">Helpless</p>
 			</motion.div>
 		</motion.div>
@@ -268,14 +219,8 @@ const SkeletonFive = () => {
 			className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
 		>
 			<motion.div variants={variants} className="flex flex-row rounded-2xl border  p-2  items-start space-x-2 bg-background">
-				<Image
-					src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-					alt="avatar"
-					height="100"
-					width="100"
-					className="rounded-full h-10 w-10"
-				/>
-				<p className="text-xs text-neutral-500">
+				<Image src="/profile.jpg" alt="avatar" height="100" width="100" className="rounded-full h-10 w-10" />
+				<p className="text-xs text-muted-foreground">
 					There are a lot of cool framerworks out there like React, Angular, Vue, Svelte that can make your life ....
 				</p>
 			</motion.div>
@@ -283,40 +228,61 @@ const SkeletonFive = () => {
 				variants={variantsSecond}
 				className="flex flex-row rounded-full border  p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-background"
 			>
-				<p className="text-xs text-neutral-500">Use PHP.</p>
+				<p className="text-xs text-muted-foreground">Use PHP.</p>
 				<div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
 			</motion.div>
 		</motion.div>
 	);
 };
-const items = [
+
+type Item = {
+	title: string;
+	description: React.ReactNode;
+	header: React.ReactNode;
+	icon: React.ReactNode;
+	className: string;
+	url: React.ReactNode;
+	tag: React.ReactNode;
+};
+
+const items: Item[] = [
 	{
-		title: "AI Content Generation",
-		description: <span className="text-sm">Experience the power of AI in generating unique content.</span>,
+		title: "Online library backend",
+		description: "Create and manage your online library with ease.",
 		header: <SkeletonOne />,
 		className: "md:col-span-1",
-		icon: <Clipboard className="h-4 w-4 text-neutral-500" />,
+		icon: <SendToBackIcon className="h-4 w-4 text-muted-foreground" />,
+		url: "https://github.com/lewe-maiga/online-library-backend",
+		tag: <Badge className="bg-violet-600 group-hover/bento:bg-violet-500 text-violet-50 transition duration-200">Strapi</Badge>,
 	},
 	{
-		title: "Automated Proofreading",
-		description: <span className="text-sm">Let AI handle the proofreading of your documents.</span>,
+		title: "Online library frontend",
+		description: "Interface for your online library with ease.",
 		header: <SkeletonTwo />,
 		className: "md:col-span-1",
-		icon: <File className="h-4 w-4 text-neutral-500" />,
+		icon: <File className="h-4 w-4 text-muted-foreground" />,
+		url: "",
+		tag: <Badge className="bg-sky-600 group-hover/bento:bg-sky-500 text-sky-50">React</Badge>,
 	},
 	{
 		title: "Contextual Suggestions",
 		description: <span className="text-sm">Get AI-powered suggestions based on your writing context.</span>,
 		header: <SkeletonThree />,
 		className: "md:col-span-1",
-		icon: <Signature className="h-4 w-4 text-neutral-500" />,
+		icon: <Signature className="h-4 w-4 text-muted-foreground" />,
+		tag: <Badge className="bg-violet-400">Strapi</Badge>,
+		url: "https://github.com/lewe-maiga/contextual-suggestions",
 	},
+
 	{
-		title: "Sentiment Analysis",
-		description: <span className="text-sm">Understand the sentiment of your text with AI analysis.</span>,
+		title: "Black Industry Music",
+		description:
+			"Development of a web application dedicated to the talented Malian producer Black Soninké, integrating content management and artistic promotion functions.",
 		header: <SkeletonFour />,
 		className: "md:col-span-2",
-		icon: <TableColumnsSplit className="h-4 w-4 text-neutral-500" />,
+		icon: <TableColumnsSplit className="h-4 w-4 text-muted-foreground" />,
+		tag: <Badge className="bg-violet-400">Strapi</Badge>,
+		url: "",
 	},
 
 	{
@@ -324,6 +290,8 @@ const items = [
 		description: <span className="text-sm">Summarize your lengthy documents with AI technology.</span>,
 		header: <SkeletonFive />,
 		className: "md:col-span-1",
-		icon: <Box className="h-4 w-4 text-neutral-500" />,
+		icon: <Box className="h-4 w-4 text-muted-foreground" />,
+		tag: <Badge className="bg-violet-400">Strapi</Badge>,
+		url: "",
 	},
 ];

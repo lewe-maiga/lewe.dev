@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { Code } from "./code";
 
 export const Header = () => {
@@ -39,7 +40,7 @@ export const Header = () => {
 
 					<div className="flex flex-wrap gap-2 items-start mt-1">
 						<Button asChild variant="outline" className="gap-2">
-							<a href="https://www.linkedin.com/in/allewe-badra-aliyou-maiga/" target="_blank" rel="noreferrer">
+							<Link href="https://www.linkedin.com/in/allewe-badra-aliyou-maiga/" target="_blank" rel="noreferrer">
 								<svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 256 256">
 									<g fill="none">
 										<rect width="256" height="256" fill="#fff" rx="60" />
@@ -51,10 +52,10 @@ export const Header = () => {
 									</g>
 								</svg>
 								Allewe Badra Aliyou Maiga
-							</a>
+							</Link>
 						</Button>
 						<Button asChild variant="outline" className="gap-2">
-							<a href="https://github.com/lewe-maiga" target="_blank" rel="noreferrer">
+							<Link href="https://github.com/lewe-maiga" target="_blank" rel="noreferrer">
 								<svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 24 24">
 									<path
 										fill="currentColor"
@@ -62,10 +63,10 @@ export const Header = () => {
 									/>
 								</svg>
 								@lewe-maiga
-							</a>
+							</Link>
 						</Button>
 						<Button asChild variant="outline" className="gap-2">
-							<a href="https://x.com/lewe_maiga" target="_blank" rel="noreferrer">
+							<Link href="https://x.com/lewe_maiga" target="_blank" rel="noreferrer">
 								<svg xmlns="http://www.w3.org/2000/svg" className="size-5 text-foreground" viewBox="0 0 14 14">
 									<g fill="none">
 										<g clipPath="url(#primeTwitter0)">
@@ -82,10 +83,10 @@ export const Header = () => {
 									</g>
 								</svg>
 								@lewe-maiga
-							</a>
+							</Link>
 						</Button>
 						<Button asChild variant="outline" className="gap-2">
-							<a href="https://instagram.com/lewe_maiga" target="_blank" rel="noreferrer">
+							<Link href="https://instagram.com/lewe_maiga" target="_blank" rel="noreferrer">
 								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" className="size-5" viewBox="0 0 256 256">
 									<g fill="none">
 										<rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60" />
@@ -124,7 +125,7 @@ export const Header = () => {
 									</g>
 								</svg>
 								@lewe_maiga
-							</a>
+							</Link>
 						</Button>
 					</div>
 				</section>
