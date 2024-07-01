@@ -2,10 +2,10 @@ import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
+const openSans = Open_Sans({
 	subsets: ["latin"],
 	weight: ["400"],
 	variable: "--font-sans",
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 		images: [
 			{
 				url: "https://lewe.dev/og.png",
-				width: 583,
-				height: 450,
+				width: 826,
+				height: 768,
 			},
 		],
 	},
@@ -53,7 +53,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={cn("font-sans antialiased overflow-visible h-full ", poppins.variable)}>
+			<body className={cn("font-sans antialiased overflow-visible h-full ", openSans.variable)}>
 				{/* <ThemeProvider attribute="class" defaultTheme="dark"> */}
 				{children}
 				{/* </ThemeProvider> */}
