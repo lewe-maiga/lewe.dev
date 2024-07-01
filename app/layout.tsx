@@ -23,9 +23,9 @@ export const metadata: Metadata = {
 		countryName: "Morocco",
 		images: [
 			{
-				url: "https://lewe.dev/og-image.jpg",
-				width: 100,
-				height: 100,
+				url: "https://lewe.dev/og.png",
+				width: 583,
+				height: 450,
 			},
 		],
 		locale: "en-US",
