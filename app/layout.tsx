@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 		images: [
 			{
 				url: "https://lewe.dev/og.png",
-				width: 826,
-				height: 768,
+				width: 700,
+				height: 700,
 			},
 		],
 	},
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
 		title: "Lewe Maiga",
 		description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
 		url: "https://lewe.dev",
-		siteName: "Lewe Maiga",
+		siteName: "Lewe Maiga - Portfolio",
 		countryName: "Morocco",
 		images: [
 			{
 				url: "https://lewe.dev/og.png",
-				width: 583,
-				height: 450,
+				width: 700,
+				height: 700,
 			},
 		],
 		locale: "en-US",
