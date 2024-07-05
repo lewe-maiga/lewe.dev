@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -15,11 +15,13 @@ const poppins = Poppins({
 export const metadata: Metadata = {
 	title: "Lewe Maiga",
 	description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
+	metadataBase: new URL("https://lewe.dev"),
 
 	twitter: {
-		card: "summary",
+		card: "summary_large_image",
 		title: "Lewe Maiga",
 		description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
+		creator: "@lewe_maiga",
 		images: [
 			{
 				url: "https://lewe.dev/og.png",
@@ -45,6 +47,13 @@ export const metadata: Metadata = {
 		locale: "en-US",
 		type: "website",
 	},
+};
+
+export const viewport: Viewport = {
+	themeColor: [
+		{ media: "(prefers-color-scheme: light)", color: "white" },
+		{ media: "(prefers-color-scheme: dark)", color: "black" },
+	],
 };
 
 export default function RootLayout({
