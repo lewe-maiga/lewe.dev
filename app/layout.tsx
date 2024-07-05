@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -54,9 +55,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={cn("font-sans antialiased overflow-visible h-full", poppins.variable)}>
-				{/* <ThemeProvider attribute="class" defaultTheme="dark"> */}
-				{children}
-				{/* </ThemeProvider> */}
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+					{children}
+				</ThemeProvider>
 				<Analytics />
 			</body>
 		</html>
