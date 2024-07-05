@@ -94,9 +94,9 @@ const SkeletonTwo = () => {
 		},
 	};
 	return (
-		<motion.div className="flex flex-1 w-full h-full min-h-[6rem] flex-col rounded-xl relative">
+		<motion.div className="flex flex-1 w-full h-full md:min-h-[6rem] flex-col rounded-xl relative min-h-[12rem] ">
 			<motion.div
-				className="overflow-hidden border relative h-full w-full rounded-[inherit]"
+				className="overflow-hidden border relative h-full w-full rounded-[inherit] "
 				initial="initial"
 				animate="animate"
 				variants={variants}
@@ -130,7 +130,7 @@ const SkeletonThree = () => {
 				repeat: Infinity,
 				repeatType: "reverse",
 			}}
-			className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
+			className="flex flex-1 w-full h-full md:min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2 min-h-[12rem] "
 			style={{
 				background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
 				backgroundSize: "400% 400%",
@@ -166,7 +166,7 @@ const SkeletonFour = () => {
 			initial="initial"
 			animate="animate"
 			whileHover="hover"
-			className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2"
+			className="flex flex-1 w-full h-full md:min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2 min-h-[12rem]"
 		>
 			<motion.div variants={first} className="h-full w-1/3 rounded-2xl bg-background p-4  border  flex flex-col items-center justify-center">
 				<Image src="/profile.jpg" alt="avatar" height="100" width="100" className="rounded-full h-10 w-10" />
@@ -216,7 +216,7 @@ const SkeletonFive = () => {
 		<motion.div
 			initial="initial"
 			whileHover="animate"
-			className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+			className="flex flex-1 w-full h-full md:min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 min-h-[12rem]"
 		>
 			<motion.div variants={variants} className="flex flex-row rounded-2xl border  p-2  items-start space-x-2 bg-background">
 				<Image src="/profile.jpg" alt="avatar" height="100" width="100" className="rounded-full h-10 w-10" />

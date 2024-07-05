@@ -53,7 +53,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={cn("font-sans antialiased overflow-visible h-full ", poppins.variable)}>
+			<body className={cn("font-sans antialiased overflow-visible h-full", poppins.variable)}>
 				{/* <ThemeProvider attribute="class" defaultTheme="dark"> */}
 				{children}
 				{/* </ThemeProvider> */}
