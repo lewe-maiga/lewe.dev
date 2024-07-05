@@ -1,7 +1,5 @@
 import { allPosts } from "@/.contentlayer/generated";
-import { Button } from "@/components/ui/button";
 import { format, parseISO } from "date-fns";
-import { ArrowLeft } from "lucide-react";
 import { MDXComponents } from "mdx/types";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import NextImage from "next/image";
@@ -35,12 +33,6 @@ export default function Page({ params }: { params: { slug: string } }) {
 
 	return (
 		<main className="mx-auto max-w-2xl pt-10 px-4 space-y-6 ">
-			<Button asChild variant={"link"} className="gap-2 pl-0 text-muted-foreground">
-				<Link href="/posts">
-					<ArrowLeft className="h-4 w-4" />
-					Get back all posts
-				</Link>
-			</Button>
 			<div>
 				<h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">{post.title}</h1>
 				<time className="my-4 block text-sm text-muted-foreground" dateTime={post.date}>
