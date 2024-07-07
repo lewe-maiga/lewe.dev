@@ -3,12 +3,12 @@ import { Analytics } from "@vercel/analytics/react";
 
 import { LogoIcon } from "@/components/icons/logo";
 import { ThemeSwitcher } from "@/components/theme-switcher";
+import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import { JetBrains_Mono, Poppins } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
-import { GeistSans } from "geist/font/sans";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 		title: "Lewe Maiga",
 		description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
 		url: "https://lewe.dev",
-		siteName: "Lewe Maiga - Portfolio",
+		siteName: "Lewe Maiga",
 		countryName: "Morocco",
 		images: [
 			{

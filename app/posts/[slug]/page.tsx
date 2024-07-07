@@ -3,6 +3,7 @@ import { ReadProgress } from "@/components/read-progess";
 import { TableOfContent } from "@/components/table-of-content";
 import { format, parseISO } from "date-fns";
 import { MDXComponents } from "mdx/types";
+import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import NextImage from "next/image";
 import Link from "next/link";
@@ -10,10 +11,15 @@ import readinDuration from "reading-duration";
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
 	const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
 	if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
-	return { title: post.title, description: post.description };
+	return {
+		title: post.title,
+		description: post.description,
+		openGraph: { title: post.title, description: post.description, url: `https://lewe.dev/posts/${post._raw.flattenedPath}` },
+		twitter: { title: post.title, description: post.description, creator: "@lewe_maiga" },
+	};
 };
 
 const mdxComponents: MDXComponents = {
