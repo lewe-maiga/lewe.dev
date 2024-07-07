@@ -3,7 +3,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
 const config = {
 	darkMode: ["class"],
-	content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+	content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}", "./posts/**/*.{md,mdx}"],
 	prefix: "",
 	theme: {
 		container: {
@@ -54,7 +54,12 @@ const config = {
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
 			},
+
 			keyframes: {
+				"slide-down": {
+					"0%": { opacity: "0", transform: "translateY(-10px)" },
+					"100%": { opacity: "1", transform: "translateY(0)" },
+				},
 				meteor: {
 					"0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
 					"70%": { opacity: "1" },
@@ -85,6 +90,8 @@ const config = {
 			},
 			fontFamily: {
 				sans: ["var(--font-sans)", ...fontFamily.sans],
+				mono: ["var(--font-mono)", ...fontFamily.mono],
+				geist: ["var(--font-geist-sans)", ...fontFamily.sans],
 			},
 		},
 	},

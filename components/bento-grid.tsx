@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Box, File, SendToBackIcon, Signature, TableColumnsSplit } from "lucide-react";
+import { Box, File, Headphones, SendToBackIcon, Signature, TableColumnsSplit } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import { StrapiIcon } from "./icons/strapi";
@@ -169,19 +169,18 @@ const SkeletonFour = () => {
 			className="flex flex-1 w-full h-full md:min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2 min-h-[12rem]"
 		>
 			<motion.div variants={first} className="h-full w-1/3 rounded-2xl bg-background p-4  border  flex flex-col items-center justify-center">
-				<Image src="/profile.jpg" alt="avatar" height="100" width="100" className="rounded-full h-10 w-10" />
-				<p className="sm:text-sm text-xs text-center font-semibold text-muted-foreground mt-4">Just code in Vanilla Javascript</p>
-				<p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">Delusional</p>
+				<div className="w-10 h-10">
+					<Headphones className="rounded-full h-10 w-10" />
+				</div>
+				<p className="sm:text-sm text-xs text-center font-semibold text-muted-foreground mt-4">Listen beats</p>
 			</motion.div>
 			<motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-background p-4 ] border flex flex-col items-center justify-center">
 				<Image src="/profile.jpg" alt="avatar" height="100" width="100" className="rounded-full h-10 w-10" />
-				<p className="sm:text-sm text-xs text-center font-semibold text-muted-foreground mt-4">Tailwind CSS is cool, you know</p>
-				<p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">Sensible</p>
+				<p className="sm:text-sm text-xs text-center font-semibold text-muted-foreground mt-4">Meet the artist</p>
 			</motion.div>
 			<motion.div variants={second} className="h-full w-1/3 rounded-2xl p-4 bg-background border  flex flex-col items-center justify-center">
 				<Image src="/profile.jpg" alt="avatar" height="100" width="100" className="rounded-full h-10 w-10" />
-				<p className="sm:text-sm text-xs text-center font-semibold text-muted-foreground mt-4">I love angular, RSC, and Redux.</p>
-				<p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">Helpless</p>
+				<p className="sm:text-sm text-xs text-center font-semibold text-muted-foreground mt-4">Share with friends</p>
 			</motion.div>
 		</motion.div>
 	);

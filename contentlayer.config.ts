@@ -34,6 +34,7 @@ export default makeSource({
 		remarkPlugins: [remarkGfm],
 		rehypePlugins: [
 			rehypeSlug,
+
 			[
 				//@ts-ignore
 				rehypePrettyCode,

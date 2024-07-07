@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { AWSIcon } from "./icons/aws";
 import { DockerIcon } from "./icons/docker";
 import DynamodbIcon from "./icons/dynamodb";
@@ -28,92 +29,51 @@ export const Skills = () => {
 					<div className="space-y-2">
 						<h4 className="font-medium">Web Development</h4>
 						<div className="flex flex-wrap gap-2 items-start mt-1">
-							<SkillItem>
-								<ReactIcon className="size-5" />
-								React
-							</SkillItem>
-							<SkillItem>
-								<LaravelIcon className="size-5" />
-								Laravel
-							</SkillItem>
-							<SkillItem>
-								<NextjsIcon className="size-5" />
-								Next.js
-							</SkillItem>
-							<SkillItem>
-								<NestjsIcon className="size-5" />
-								Nest.js
-							</SkillItem>
-							<SkillItem>
-								<SassIcon className="size-5" />
-								Sass
-							</SkillItem>
-							<SkillItem>
-								<TailwindcssIcon className="size-5" />
-								TailwindCSS
-							</SkillItem>
-							<SkillItem>
-								<TypescriptIcon className="size-5" />
-								Typescript
-							</SkillItem>
+							<SkillItem Icon={ReactIcon} label="React" iconClassName="group-hover/skill:animate-spin" />
+
+							<SkillItem Icon={LaravelIcon} label="Laravel" />
+
+							<SkillItem Icon={NextjsIcon} label="Next.js" />
+
+							<SkillItem Icon={NestjsIcon} label="Nest.js" />
+
+							<SkillItem Icon={SassIcon} label="Sass" />
+
+							<SkillItem Icon={TailwindcssIcon} label="TailwindCSS" />
+
+							<SkillItem Icon={TypescriptIcon} label="Typescript" />
 						</div>
 					</div>
 					<div className="space-y-2">
 						<h4 className="font-medium">Database</h4>
 						<div className="flex flex-wrap gap-2 items-start mt-1">
-							<SkillItem>
-								<MysqlIcon className="size-5" />
-								MySQL
-							</SkillItem>
-							<SkillItem>
-								<PostgresqlIcon className="size-5" />
-								PostgreSQL
-							</SkillItem>
-							<SkillItem>
-								<DynamodbIcon className="size-5" />
-								DynamoDB
-							</SkillItem>
-							<SkillItem>
-								<MongodbIcon className="size-5" />
-								MongoDB
-							</SkillItem>
+							<SkillItem Icon={MysqlIcon} label="MySQL" />
+
+							<SkillItem Icon={PostgresqlIcon} label="PostgreSQL" />
+
+							<SkillItem Icon={DynamodbIcon} label="DynamoDB" />
+
+							<SkillItem Icon={MongodbIcon} label="MongoDB" />
 						</div>
 					</div>
 					<div className="space-y-2">
 						<h4 className="font-medium">DevOps</h4>
 						<div className="flex flex-wrap gap-2 items-start mt-1">
-							<SkillItem>
-								<AWSIcon className="size-5" />
-								Amazon Web Services
-							</SkillItem>
-							<SkillItem>
-								<VercelIcon className="size-5" />
-								Vercel
-							</SkillItem>
-							<SkillItem>
-								<TerraformIcon className="size-5" />
-								Terraform
-							</SkillItem>
-							<SkillItem>
-								<GithubactionsIcon className="size-5" />
-								GitHub Actions
-							</SkillItem>
-							<SkillItem>
-								<SonarqubeIcon className="size-5" />
-								SonarQube
-							</SkillItem>
-							<SkillItem>
-								<DockerIcon className="size-5" />
-								Docker
-							</SkillItem>
-							<SkillItem>
-								<PythonIcon className="size-5" />
-								Python
-							</SkillItem>
-							<SkillItem>
-								<GitlabIcon className="size-5" />
-								Gitlab
-							</SkillItem>
+							<SkillItem Icon={AWSIcon} label="Amazon Web Services" />
+
+							<SkillItem Icon={VercelIcon} label="Vercel" iconClassName="group-hover/skill:animate-slide-down" />
+
+							<SkillItem Icon={TerraformIcon} label="Terraform" />
+
+							<SkillItem Icon={GithubactionsIcon} label="GitHub Actions" />
+
+							<SkillItem Icon={SonarqubeIcon} label="SonarQube" />
+
+							<SkillItem Icon={DockerIcon} label="Docker" />
+
+							<SkillItem Icon={PythonIcon} label="Python" />
+
+							<SkillItem Icon={GitlabIcon} label="GitLab" />
 						</div>
 					</div>
 				</div>
@@ -122,11 +82,16 @@ export const Skills = () => {
 	);
 };
 
-type SkillItemProps = React.PropsWithChildren<{}>;
-function SkillItem({ children }: SkillItemProps) {
+type SkillItemProps = {
+	label: string;
+	Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+	iconClassName?: string;
+};
+function SkillItem({ label, Icon, iconClassName }: SkillItemProps) {
 	return (
-		<div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-2 py-2 gap-2 dark:bg-white/5">
-			{children}
+		<div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-accent cursor-pointer hover:text-accent-foreground h-10 px-2 py-2 gap-2 group/skill dark:border dark:bg-white/5 dark:hover:bg-white/10 dark:text-muted-foreground">
+			<Icon className={cn("size-5 group-hover/skill:animate-bounce", iconClassName)} />
+			{label}
 		</div>
 	);
 }

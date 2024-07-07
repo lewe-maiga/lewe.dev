@@ -34,8 +34,7 @@ export const Header = () => {
 					<p className="text-muted-foreground leading-7">
 						Currently an intern at DigiImmo as a Fullstack engineer, I&apos;m developing an innovative ERP for the real estate industry using
 						cutting-edge technologies such as <Code>react</Code>, <Code>zustand</Code>, <Code>next</Code>, <Code>@mui/material</Code>,<Code>swr</Code>
-						, <Code>laravel</Code>, <Code>mysql</Code>, and
-						<Code>docker</Code>.
+						, <Code>laravel</Code>, <Code>mysql</Code>, and <Code>docker</Code>.
 					</p>
 
 					<div className="flex flex-wrap gap-2 items-start mt-1">

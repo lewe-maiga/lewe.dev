@@ -2,16 +2,24 @@ import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 
 import { LogoIcon } from "@/components/icons/logo";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
-import { Poppins } from "next/font/google";
+import { JetBrains_Mono, Poppins } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import { GeistSans } from "geist/font/sans";
 
 const poppins = Poppins({
 	subsets: ["latin"],
 	weight: ["400"],
 	variable: "--font-sans",
+});
+
+const jetbrains = JetBrains_Mono({
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -65,17 +73,18 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={cn("font-sans antialiased overflow-visible h-full", poppins.variable)}>
+			<body className={cn("font-sans antialiased overflow-visible h-full", poppins.variable, jetbrains.variable, GeistSans.variable)}>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 					<div className="mx-auto py-8 max-w-2xl px-4">
 						<nav className=" flex items-center justify-between">
-							<Link href={"/"}>
+							<Link href={"/"} aria-label="Home">
 								<LogoIcon className="h-4 w-12" />
 							</Link>
 
-							<div className="flex gap-4">
+							<div className="flex gap-4 items-center">
 								<Link href={"#"}>about</Link>
 								<Link href={"posts"}>posts</Link>
+								<ThemeSwitcher />
 							</div>
 						</nav>
 					</div>
