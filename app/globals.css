@@ -57,7 +57,7 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background/30 text-foreground;
 	}
 }
 
@@ -82,7 +82,7 @@
 }
 
 .prose a {
-	@apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+	@apply transition-all text-primary duration-200 underline-offset-4;
 }
 
 .prose .anchor:after {
@@ -154,30 +154,30 @@ input[type="email"] {
 	margin: 0 !important;
 }
 
-[data-rehype-pretty-code-fragment] code {
+[data-rehype-pretty-code-figure] code {
 	@apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
 	counter-reset: line;
 	box-decoration-break: clone;
 }
-[data-rehype-pretty-code-fragment] .line {
-	@apply py-1;
+[data-rehype-pretty-code-figure] [data-line] {
+	@apply py-1 border-l-4 border-transparent;
 }
-[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
+[data-rehype-pretty-code-figure] [data-line-numbers] > [data-line]::before {
 	counter-increment: line;
 	content: counter(line);
 	display: inline-block;
 	width: 1rem;
 	margin-right: 1rem;
 	text-align: right;
-	color: gray;
+	@apply text-muted-foreground;
 }
-[data-rehype-pretty-code-fragment] .line--highlighted {
-	@apply bg-slate-500 bg-opacity-10;
+[data-rehype-pretty-code-figure] .line--highlighted {
+	@apply bg-primary/40 border-l-4 border-primary;
 }
-[data-rehype-pretty-code-fragment] .line-highlighted span {
+[data-rehype-pretty-code-figure] .line-highlighted span {
 	@apply relative;
 }
-[data-rehype-pretty-code-fragment] .word--highlighted {
+[data-rehype-pretty-code-figure] .word--highlighted {
 	@apply rounded-md bg-slate-500 bg-opacity-10 p-1;
 }
 [data-rehype-pretty-code-title] {

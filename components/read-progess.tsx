@@ -8,5 +8,5 @@ export function ReadProgress() {
 		damping: 30,
 		restDelta: 0.001,
 	});
-	return <motion.div className="fixed top-0 inset-x-0 h-[2px] z-50 bg-accent origin-left lg:hidden" style={{ scaleX }} aria-hidden="true" />;
+	return <motion.div className="fixed top-0 inset-x-0 h-[2px] z-50 bg-primary origin-left md:hidden" style={{ scaleX }} aria-hidden="true" />;
 }

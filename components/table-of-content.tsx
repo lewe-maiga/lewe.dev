@@ -13,11 +13,11 @@ export function TableOfContent() {
 		tocbot.init({
 			tocSelector: ".js-toc",
 			contentSelector: ".js-toc-content",
-			headingSelector: "h2, h3",
+			headingSelector: "h2",
 			listClass: "flex flex-col max-w-52 mb-6 ml-6 p-0 ",
 			listItemClass: "mb-3 font-medium font-geist text-muted-foreground",
 			linkClass: "text-sm",
-			activeLinkClass: "text-accent  font-semibold",
+			activeLinkClass: "text-primary font-semibold",
 		});
 
 		return () => {
@@ -25,10 +25,10 @@ export function TableOfContent() {
 		};
 	}, []);
 
-	const shouldShowTableOfContent = readingProgress > 0.15 && readingProgress < 0.9;
+	const shouldShowTableOfContent = readingProgress > 0.07 && readingProgress < 0.95;
 
 	return (
-		<motion.div hidden={!shouldShowTableOfContent} className={cn("top-52 fixed left-2.5 hidden lg:flex")}>
+		<motion.div hidden={!shouldShowTableOfContent} className={cn("top-52 fixed left-2.5 hidden md:flex")}>
 			<ProgressBar progress={readingProgress} />
 			<motion.div
 				animate={{ opacity: 1 }}
@@ -36,7 +36,7 @@ export function TableOfContent() {
 				exit={{ opacity: 0 }}
 				hidden={!shouldShowTableOfContent}
 				transition={{ duration: 0.2, type: "spring" }}
-				className="js-toc"
+				className="js-toc lg:block hidden"
 			></motion.div>
 		</motion.div>
 	);
@@ -72,7 +72,7 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
 				style={{
 					scaleY: progress,
 				}}
-				className="bg-accent w-[2px] h-full origin-top"
+				className="bg-primary w-[2px] h-full origin-top"
 			/>
 		</motion.div>
 	);

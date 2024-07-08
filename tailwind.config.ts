@@ -81,12 +81,17 @@ const config = {
 						"offset-distance": "100%",
 					},
 				},
+				move: {
+					"0%": { transform: "translateX(-200px)" },
+					"100%": { transform: "translateX(200px)" },
+				},
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
 				"border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
 				meteor: "meteor 5s linear infinite",
+				move: "move 5s linear infinite",
 			},
 			fontFamily: {
 				sans: ["var(--font-sans)", ...fontFamily.sans],

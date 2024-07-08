@@ -14,9 +14,9 @@ export default function Home() {
 	return (
 		<>
 			<div className="fixed h-2/3 top-0 inset-0 overflow-hidden -z-10 -left-60">
-				<Meteors number={10} />
+				<Meteors number={5} />
 			</div>
-			<main className="flex flex-col items-center gap-16  antialiased relative pt-16 md:pt-14   ">
+			<main className="flex flex-col items-center gap-16  antialiased relative pt-10 md:pt-16  ">
 				<Header />
 
 				<Skills />

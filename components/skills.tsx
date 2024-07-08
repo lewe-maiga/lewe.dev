@@ -89,8 +89,8 @@ type SkillItemProps = {
 };
 function SkillItem({ label, Icon, iconClassName }: SkillItemProps) {
 	return (
-		<div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-accent cursor-pointer hover:text-accent-foreground h-10 px-2 py-2 gap-2 group/skill dark:border dark:bg-white/5 dark:hover:bg-white/10 dark:text-muted-foreground">
-			<Icon className={cn("size-5 group-hover/skill:animate-bounce", iconClassName)} />
+		<div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-foreground/20 cursor-pointer hover:text-accent-foreground h-10 px-2 py-2 gap-2 group/skill dark:border dark:bg-white/5 dark:hover:bg-white/20 dark:text-muted-foreground">
+			<Icon className={cn("size-5 group-hover/skill:animate-pulse", iconClassName)} />
 			{label}
 		</div>
 	);

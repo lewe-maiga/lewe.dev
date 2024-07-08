@@ -1,13 +1,11 @@
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 
-import { LogoIcon } from "@/components/icons/logo";
-import { ThemeSwitcher } from "@/components/theme-switcher";
+import { Navbar } from "@/components/navbar";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import { JetBrains_Mono, Poppins } from "next/font/google";
-import Link from "next/link";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -73,21 +71,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={cn("font-sans antialiased overflow-visible h-full", poppins.variable, jetbrains.variable, GeistSans.variable)}>
+			<body className={cn("font-sans antialiased overflow-visible", poppins.variable, jetbrains.variable, GeistSans.variable)}>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-					<div className="mx-auto py-8 max-w-2xl px-4">
-						<nav className=" flex items-center justify-between">
-							<Link href={"/"} aria-label="Home">
-								<LogoIcon className="h-4 w-12" />
-							</Link>
-
-							<div className="flex gap-4 items-center">
-								<Link href={"#"}>about</Link>
-								<Link href={"posts"}>posts</Link>
-								<ThemeSwitcher />
-							</div>
-						</nav>
-					</div>
+					<Navbar />
 
 					{children}
 				</ThemeProvider>

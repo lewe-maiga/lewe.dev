@@ -47,9 +47,6 @@ export default makeSource({
 						}
 					},
 					onVisitHighlightedLine(node: LineElement) {
-						const nodeClass = node.properties.className;
-						console.log("Highlighted Line", { node });
-
 						node.properties.className = ["line--highlighted"];
 					},
 					onVisitHighlightedWord(node: LineElement) {
