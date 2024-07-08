@@ -3,6 +3,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode, { LineElement } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import { visit } from "unist-util-visit";
 
 const Post = defineDocumentType(() => ({
 	name: "Post",
@@ -33,6 +34,19 @@ export default makeSource({
 	mdx: {
 		remarkPlugins: [remarkGfm],
 		rehypePlugins: [
+			() => (tree) => {
+				visit(tree, (node) => {
+					if (node?.type === "element" && node?.tagName === "pre") {
+						const [codeEl] = node.children;
+
+						if (codeEl.tagName !== "code") return;
+
+						console.log(codeEl.children?.[0].value);
+
+						node.raw = codeEl.children?.[0].value;
+					}
+				});
+			},
 			rehypeSlug,
 
 			[
@@ -62,6 +76,21 @@ export default makeSource({
 					},
 				},
 			],
+			() => (tree) => {
+				visit(tree, (node) => {
+					if (node?.type === "element" && node?.tagName === "figure") {
+						if (!("data-rehype-pretty-code-figure" in node.properties)) {
+							return;
+						}
+
+						for (const child of node.children) {
+							if (child.tagName === "pre") {
+								child.properties["raw"] = node.raw;
+							}
+						}
+					}
+				});
+			},
 		],
 	},
 });

@@ -1,6 +1,7 @@
 import { allPosts } from "@/.contentlayer/generated";
 import { CardDemo } from "@/components/card-demo";
 import { ComponentPreview } from "@/components/component-preview";
+import { CopyButton } from "@/components/copy-button";
 import { LinkPreview } from "@/components/link-preview";
 import { ReadProgress } from "@/components/read-progess";
 import { TableOfContent } from "@/components/table-of-content";
@@ -10,6 +11,7 @@ import { MDXComponents } from "mdx/types";
 import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import NextImage from "next/image";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import readingDuration from "reading-duration";
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
@@ -24,6 +26,10 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
 		twitter: { title: post.title, description: post.description, creator: "@lewe_maiga" },
 	};
 };
+interface CustomProps extends DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement> {
+	"data-language"?: string;
+	raw?: string;
+}
 
 const mdxComponents: MDXComponents = {
 	a: ({ href, children }) => (
@@ -45,7 +51,21 @@ const mdxComponents: MDXComponents = {
 	h4: (props) => <h4 className="scroll-m-20 font-geist text-lgl font-semibold tracking-tight" {...props} />,
 	blockquote: (props) => <blockquote className="mt-6 border-l-2 pl-6 italic" {...props} />,
 	ul: (props) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />,
-	pre: (props) => <pre className="mt-6 overflow-x-auto rounded-lg px-2" {...props} />,
+	pre: ({ children, raw, ...props }: CustomProps) => {
+		const lang = props["data-language"];
+
+		console.log({ raw, lang });
+
+		return (
+			<pre {...props} className="mt-6 overflow-x-auto rounded-lg space-y-1 px-2">
+				<div className={"pl-4 flex items-center justify-between"}>
+					<span className="text-sm bg-white/5 font-geist font-medium ring-input rounded px-2  text-gray-50">{lang}</span>
+					<CopyButton text={raw || ""} />
+				</div>
+				{children}
+			</pre>
+		);
+	},
 	ComponentPreview,
 };
 

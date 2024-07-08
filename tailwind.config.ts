@@ -90,8 +90,8 @@ const config = {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
 				"border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
-				meteor: "meteor 5s linear infinite",
 				move: "move 5s linear infinite",
+				"meteor-effect": "meteor 5s linear infinite",
 			},
 			fontFamily: {
 				sans: ["var(--font-sans)", ...fontFamily.sans],

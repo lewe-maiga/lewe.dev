@@ -1,8 +1,8 @@
 import { allPosts } from "@/.contentlayer/generated";
+import { AnimatedBackground } from "@/components/animated-background";
 import { BentoGridThirdDemo } from "@/components/bento-grid";
 import { BorderBeam } from "@/components/border-beam";
 import { Header } from "@/components/header";
-import Meteors from "@/components/meteors";
 import { PostCard } from "@/components/post-card";
 import { Skills } from "@/components/skills";
 import { Button } from "@/components/ui/button";
@@ -13,9 +13,8 @@ export default function Home() {
 	const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))).slice(0, 3);
 	return (
 		<>
-			<div className="fixed h-2/3 top-0 inset-0 overflow-hidden -z-10 -left-60">
-				<Meteors number={5} />
-			</div>
+			<AnimatedBackground />
+
 			<main className="flex flex-col items-center gap-16  antialiased relative pt-10 md:pt-16  ">
 				<Header />
 

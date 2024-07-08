@@ -3,65 +3,72 @@ import { cn } from "@/lib/utils";
 import { animate, motion } from "framer-motion";
 import { Bot } from "lucide-react";
 import React, { useEffect } from "react";
+import { Card, CardDescription, CardTitle } from "./ui/card";
 
 export function CardDemo() {
 	return (
-		<Card>
+		<Card
+			className={cn(
+				"max-w-sm w-full mx-auto p-8 rounded-xl border bg-muted/40 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group relative overflow-hidden"
+			)}
+		>
 			<CardSkeletonContainer>
 				<Skeleton />
 			</CardSkeletonContainer>
-			<CardTitle>Damn good card</CardTitle>
-			<CardDescription>A card that showcases a set of tools that you use to create your product.</CardDescription>
+			<CardTitle className="text-lg font-semibold py-2">Damn good card</CardTitle>
+			<CardDescription className="text-sm font-normal max-w-sm">
+				A card that showcases a set of tools that you use to create your product.
+			</CardDescription>
 		</Card>
 	);
 }
 
-const Skeleton = () => {
-	const scale = [1, 1.1, 1];
-	const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
-	const sequence = [
-		[
-			".circle-1",
-			{
-				scale,
-				transform,
-			},
-			{ duration: 0.8 },
-		],
-		[
-			".circle-2",
-			{
-				scale,
-				transform,
-			},
-			{ duration: 0.8 },
-		],
-		[
-			".circle-3",
-			{
-				scale,
-				transform,
-			},
-			{ duration: 0.8 },
-		],
-		[
-			".circle-4",
-			{
-				scale,
-				transform,
-			},
-			{ duration: 0.8 },
-		],
-		[
-			".circle-5",
-			{
-				scale,
-				transform,
-			},
-			{ duration: 0.8 },
-		],
-	];
+const scale = [1, 1.1, 1];
+const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
+const sequence = [
+	[
+		".circle-1",
+		{
+			scale,
+			transform,
+		},
+		{ duration: 0.8 },
+	],
+	[
+		".circle-2",
+		{
+			scale,
+			transform,
+		},
+		{ duration: 0.8 },
+	],
+	[
+		".circle-3",
+		{
+			scale,
+			transform,
+		},
+		{ duration: 0.8 },
+	],
+	[
+		".circle-4",
+		{
+			scale,
+			transform,
+		},
+		{ duration: 0.8 },
+	],
+	[
+		".circle-5",
+		{
+			scale,
+			transform,
+		},
+		{ duration: 0.8 },
+	],
+];
 
+const Skeleton = () => {
 	useEffect(() => {
 		// @ts-ignore
 		animate(sequence, {
@@ -89,7 +96,7 @@ const Skeleton = () => {
 				</Container>
 			</div>
 
-			<div className="h-40 w-px absolute top-20 m-auto z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-move">
+			<div className="h-40 w-px absolute top-20 m-auto z-40 bg-gradient-to-b from-transparent via-secondary to-transparent animate-move">
 				<div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
 					<Sparkles />
 				</div>
@@ -133,27 +140,6 @@ const Sparkles = () => {
 	);
 };
 
-export const Card = ({ className, children }: { className?: string; children: React.ReactNode }) => {
-	return (
-		<div
-			className={cn(
-				"max-w-sm w-full mx-auto p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-[rgba(40,40,40,0.70)] bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group",
-				className
-			)}
-		>
-			{children}
-		</div>
-	);
-};
-
-export const CardTitle = ({ children, className }: { children: React.ReactNode; className?: string }) => {
-	return <h3 className={cn("text-lg font-semibold text-gray-800 dark:text-white py-2", className)}>{children}</h3>;
-};
-
-export const CardDescription = ({ children, className }: { children: React.ReactNode; className?: string }) => {
-	return <p className={cn("text-sm font-normal text-neutral-600 dark:text-neutral-400 max-w-sm", className)}>{children}</p>;
-};
-
 export const CardSkeletonContainer = ({
 	className,
 	children,
@@ -168,7 +154,7 @@ export const CardSkeletonContainer = ({
 			className={cn(
 				"h-[15rem] md:h-[20rem] rounded-xl z-40",
 				className,
-				showGradient && "bg-neutral-300 dark:bg-[rgba(40,40,40,0.70)] [mask-image:radial-gradient(50%_50%_at_50%_50%,white_0%,transparent_100%)]"
+				showGradient && "bg-muted/10 [mask-image:radial-gradient(50%_50%_at_50%_50%,white_0%,transparent_100%)]"
 			)}
 		>
 			{children}
@@ -180,7 +166,7 @@ const Container = ({ className, children }: { className?: string; children: Reac
 	return (
 		<div
 			className={cn(
-				`h-16 w-16 rounded-full flex items-center justify-center bg-[rgba(248,248,248,0.01)]
+				`h-16 w-16 rounded-full flex items-center justify-center bg-muted
     shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)]
     `,
 				className
@@ -239,9 +225,9 @@ export const GeminiLogo = ({ className }: { className?: string }) => {
 					gradientUnits="userSpaceOnUse"
 					gradientTransform="matrix(16.1326 5.4553 -43.70045 129.2322 1.588 6.503)"
 				>
-					<stop offset=".067" stop-color="#9168C0" />
-					<stop offset=".343" stop-color="#5684D1" />
-					<stop offset=".672" stop-color="#1BA1E3" />
+					<stop offset=".067" stopColor="#9168C0" />
+					<stop offset=".343" stopColor="#5684D1" />
+					<stop offset=".672" stopColor="#1BA1E3" />
 				</radialGradient>
 			</defs>
 		</svg>
@@ -261,10 +247,10 @@ export const MetaIconOutline = ({ className }: { className?: string }) => {
 					gradientTransform="matrix(1, 0, 0, -1, 0, 192)"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop offset="0" stop-color="#0064e1" />
-					<stop offset="0.4" stop-color="#0064e1" />
-					<stop offset="0.83" stop-color="#0073ee" />
-					<stop offset="1" stop-color="#0082fb" />
+					<stop offset="0" stopColor="#0064e1" />
+					<stop offset="0.4" stopColor="#0064e1" />
+					<stop offset="0.83" stopColor="#0073ee" />
+					<stop offset="1" stopColor="#0082fb" />
 				</linearGradient>
 				<linearGradient
 					id="linear-gradient-2"
@@ -275,8 +261,8 @@ export const MetaIconOutline = ({ className }: { className?: string }) => {
 					gradientTransform="matrix(1, 0, 0, -1, 0, 192)"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop offset="0" stop-color="#0082fb" />
-					<stop offset="1" stop-color="#0064e0" />
+					<stop offset="0" stopColor="#0082fb" />
+					<stop offset="1" stopColor="#0064e0" />
 				</linearGradient>
 			</defs>
 			<path
