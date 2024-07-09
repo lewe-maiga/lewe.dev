@@ -1,13 +1,12 @@
 import { allPosts } from "@/.contentlayer/generated";
-import { AnimatedBackground } from "@/components/animated-background";
 import { BentoGridThirdDemo } from "@/components/bento-grid";
 import { BorderBeam } from "@/components/border-beam";
-import { Header } from "@/components/header";
-import { PostCard } from "@/components/post-card";
-import { Skills } from "@/components/skills";
-import { Button } from "@/components/ui/button";
+import { AnimatedBackground } from "@/components/layout/animated-background";
+import { Header } from "@/components/layout/header";
+import { PostCard } from "@/components/layout/post-card";
+import { Skills } from "@/components/layout/skills";
+
 import { compareDesc } from "date-fns";
-import Link from "next/link";
 
 export default function Home() {
 	const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))).slice(0, 3);
@@ -15,7 +14,7 @@ export default function Home() {
 		<>
 			<AnimatedBackground />
 
-			<main className="flex flex-col items-center gap-16  antialiased relative pt-10 md:pt-16  ">
+			<main className="flex flex-col items-center gap-16 my-16 16 md:my-32 antialiased relative  ">
 				<Header />
 
 				<Skills />
@@ -39,15 +38,6 @@ export default function Home() {
 							))}
 						</ul>
 					</div>
-				</section>
-
-				{/* Contact me */}
-
-				<section className="max-w-2xl px-4 flex flex-col items-center justify-center gap-2">
-					<p className="text-muted-foreground text-sm">A good old mailto, you never know it might come in handy 😅</p>
-					<Button asChild>
-						<Link href="mailto:badraliyoumaiga199@gmail.com">Let&apos;s talk</Link>
-					</Button>
 				</section>
 
 				<footer>

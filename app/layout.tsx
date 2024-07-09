@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 
-import { Navbar } from "@/components/navbar";
+import { DockDemo } from "@/components/layout/dock-demo";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
@@ -72,10 +73,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={cn("font-sans antialiased overflow-visible", poppins.variable, jetbrains.variable, GeistSans.variable)}>
-				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-					<Navbar />
-
-					{children}
+				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+					<TooltipProvider>
+						{children}
+						<DockDemo />
+					</TooltipProvider>
 				</ThemeProvider>
 				<Analytics />
 			</body>

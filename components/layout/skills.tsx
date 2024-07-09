@@ -1,23 +1,23 @@
 import { cn } from "@/lib/utils";
-import { AWSIcon } from "./icons/aws";
-import { DockerIcon } from "./icons/docker";
-import DynamodbIcon from "./icons/dynamodb";
-import { GithubactionsIcon } from "./icons/githubactions";
-import { GitlabIcon } from "./icons/gitlab";
-import { LaravelIcon } from "./icons/laravel";
-import MongodbIcon from "./icons/mongodb";
-import { MysqlIcon } from "./icons/mysql";
-import { NestjsIcon } from "./icons/nestjs";
-import { NextjsIcon } from "./icons/nextjs";
-import PostgresqlIcon from "./icons/postgresql";
-import { PythonIcon } from "./icons/python";
-import { ReactIcon } from "./icons/react";
-import { SassIcon } from "./icons/sass";
-import { SonarqubeIcon } from "./icons/sonarqube";
-import { TailwindcssIcon } from "./icons/tailwind";
-import { TerraformIcon } from "./icons/terraform";
-import { TypescriptIcon } from "./icons/typescript";
-import { VercelIcon } from "./icons/vercel";
+import { AWSIcon } from "../icons/aws";
+import { DockerIcon } from "../icons/docker";
+import DynamodbIcon from "../icons/dynamodb";
+import { GithubactionsIcon } from "../icons/githubactions";
+import { GitlabIcon } from "../icons/gitlab";
+import { LaravelIcon } from "../icons/laravel";
+import MongodbIcon from "../icons/mongodb";
+import { MysqlIcon } from "../icons/mysql";
+import { NestjsIcon } from "../icons/nestjs";
+import { NextjsIcon } from "../icons/nextjs";
+import PostgresqlIcon from "../icons/postgresql";
+import { PythonIcon } from "../icons/python";
+import { ReactIcon } from "../icons/react";
+import { SassIcon } from "../icons/sass";
+import { SonarqubeIcon } from "../icons/sonarqube";
+import { TailwindcssIcon } from "../icons/tailwind";
+import { TerraformIcon } from "../icons/terraform";
+import { TypescriptIcon } from "../icons/typescript";
+import { VercelIcon } from "../icons/vercel";
 
 export const Skills = () => {
 	return (

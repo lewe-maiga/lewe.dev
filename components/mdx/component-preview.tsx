@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import * as React from "react";
-import { Card } from "./ui/card";
+import { Card } from "../ui/card";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 	align?: "center" | "start" | "end";
@@ -13,7 +13,7 @@ export function ComponentPreview({ children, className, align = "center", ...pro
 	return (
 		<Card
 			className={cn(
-				"relative  flex w-full flex-col justify-center p-4",
+				"relative  flex w-full flex-col justify-center p-8 not-prose",
 				{
 					"items-center": align === "center",
 					"items-start": align === "start",

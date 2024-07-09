@@ -75,10 +75,10 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
 	return (
 		<motion.div
 			initial="hide"
-			variants={progressBarWrapperVariants}
 			animate="show"
 			transition={{ type: "spring" }}
 			className="h-[calc(88vh-40px)] max-h-[425px] w-[2px] bg-muted hidden md:block"
+			variants={progressBarWrapperVariants}
 			custom={visibility}
 		>
 			<motion.div

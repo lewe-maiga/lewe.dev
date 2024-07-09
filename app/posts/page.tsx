@@ -1,6 +1,6 @@
 import { allPosts } from "@/.contentlayer/generated";
-import { AnimatedBackground } from "@/components/animated-background";
-import { PostCard } from "@/components/post-card";
+import { AnimatedBackground } from "@/components/layout/animated-background";
+import { PostCard } from "@/components/layout/post-card";
 
 export const metadata = {
 	title: "Lewe Maiga - Posts",

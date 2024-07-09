@@ -1,10 +1,11 @@
 import { allPosts } from "@/.contentlayer/generated";
-import { CardDemo } from "@/components/card-demo";
-import { ComponentPreview } from "@/components/component-preview";
 import { CopyButton } from "@/components/copy-button";
 import { LinkPreview } from "@/components/link-preview";
-import { ReadProgress } from "@/components/read-progess";
-import { TableOfContent } from "@/components/table-of-content";
+import { CardDemo } from "@/components/mdx/card-demo";
+import { ComponentPreview } from "@/components/mdx/component-preview";
+import { GradientBeam } from "@/components/mdx/gradiant-beam";
+import { ReadProgress } from "@/components/mdx/read-progess";
+import { TableOfContent } from "@/components/mdx/table-of-content";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { format, parseISO } from "date-fns";
 import { MDXComponents } from "mdx/types";
@@ -38,6 +39,8 @@ const mdxComponents: MDXComponents = {
 		</LinkPreview>
 	),
 	CardDemo,
+	GradientBeam,
+
 	Image: (props) => (
 		<AspectRatio ratio={16 / 9} className="bg-muted rounded overflow-hidden">
 			<NextImage className="object-cover" fill {...props} />

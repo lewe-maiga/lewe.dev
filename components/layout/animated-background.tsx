@@ -1,5 +1,5 @@
-import { Meteors } from "./meteors";
-import { SparklesCore } from "./sparkles";
+import { Meteors } from "../meteors";
+import { SparklesCore } from "../sparkles";
 
 export function AnimatedBackground() {
 	return (
