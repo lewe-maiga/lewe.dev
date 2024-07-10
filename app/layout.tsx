@@ -75,7 +75,7 @@ export default function RootLayout({
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
 					<TooltipProvider>
 						<div className="bg-primary">
-							<div className="max-w-screen-xl mx-auto px-4 py-2 text-primary-foreground sm:text-center md:px-8">
+							<div className="max-w-screen-xl mx-auto px-4 py-2 text-primary-foreground text-center md:px-8">
 								<p className="font-medium">Website under construction</p>
 							</div>
 						</div>
