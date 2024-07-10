@@ -1,35 +1,36 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import React, { PropsWithChildren, useRef } from "react";
-
-import { cn } from "@/lib/utils";
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
 	className?: string;
 	magnification?: number;
 	distance?: number;
-	direction?: "top" | "middle" | "bottom";
 	children: React.ReactNode;
 }
 
 const DEFAULT_MAGNIFICATION = 60;
 const DEFAULT_DISTANCE = 140;
 
-const dockVariants = cva("mx-auto w-max h-[58px] p-2 flex gap-2 border bg-popover shadow-lg flex items-en rounded-full");
+const dockVariants = cva("mx-auto w-max h-full p-2 flex items-end rounded-full border");
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
-	({ className, children, magnification = DEFAULT_MAGNIFICATION, distance = DEFAULT_DISTANCE, direction = "bottom", ...props }, ref) => {
+	({ className, children, magnification = DEFAULT_MAGNIFICATION, distance = DEFAULT_DISTANCE, ...props }, ref) => {
 		const mouseX = useMotionValue(Infinity);
 
 		const renderChildren = () => {
 			return React.Children.map(children, (child: any) => {
-				return React.cloneElement(child, {
-					mouseX: mouseX,
-					magnification: magnification,
-					distance: distance,
-				});
+				if (React.isValidElement(child)) {
+					return React.cloneElement(child, {
+						mouseX,
+						magnification,
+						distance,
+					} as DockIconProps);
+				}
+				return child;
 			});
 		};
 
@@ -39,11 +40,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 				onMouseMove={(e) => mouseX.set(e.pageX)}
 				onMouseLeave={() => mouseX.set(Infinity)}
 				{...props}
-				className={cn(dockVariants({ className }), {
-					"items-start": direction === "top",
-					"items-center": direction === "middle",
-					"items-end": direction === "bottom",
-				})}
+				className={cn(dockVariants({ className }))}
 			>
 				{renderChildren()}
 			</motion.div>
@@ -76,7 +73,6 @@ const DockIcon = ({
 
 	const distanceCalc = useTransform(mouseX, (val: number) => {
 		const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
 		return val - bounds.x - bounds.width / 2;
 	});
 

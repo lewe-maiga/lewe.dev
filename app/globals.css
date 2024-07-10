@@ -4,48 +4,48 @@
 
 @layer base {
 	:root {
-		--background: 226 38% 99%;
-		--foreground: 226 61% 4%;
-		--muted: 346 11% 86%;
-		--muted-foreground: 346 6% 36%;
-		--popover: 226 38% 99%;
-		--popover-foreground: 226 61% 4%;
-		--card: 226 38% 99%;
-		--card-foreground: 226 61% 4%;
-		--border: 226 5% 90%;
-		--input: 226 5% 90%;
-		--primary: 226 43% 67%;
-		--primary-foreground: 226 43% 7%;
-		--secondary: 346 43% 67%;
-		--secondary-foreground: 346 43% 7%;
-		--accent: 106 43% 67%;
-		--accent-foreground: 106 43% 7%;
-		--destructive: 6 81% 34%;
-		--destructive-foreground: 6 81% 94%;
-		--ring: 226 43% 67%;
+		--background: 151 48% 100%;
+		--foreground: 151 67% 4%;
+		--muted: 151 24% 87%;
+		--muted-foreground: 151 15% 32%;
+		--popover: 0 0% 99%;
+		--popover-foreground: 151 67% 3%;
+		--card: 0 0% 99%;
+		--card-foreground: 151 67% 3%;
+		--border: 151 12% 91%;
+		--input: 151 12% 91%;
+		--primary: 151 80% 42%;
+		--primary-foreground: 151 80% 2%;
+		--secondary: 151 14% 88%;
+		--secondary-foreground: 151 14% 28%;
+		--accent: 151 22% 81%;
+		--accent-foreground: 151 22% 21%;
+		--destructive: 11 93% 29%;
+		--destructive-foreground: 11 93% 89%;
+		--ring: 151 80% 42%;
 		--radius: 0.5rem;
 	}
 
 	.dark {
-		--background: 226 54% 4%;
-		--foreground: 226 18% 99%;
-		--muted: 346 11% 14%;
-		--muted-foreground: 346 6% 64%;
-		--popover: 226 54% 4%;
-		--popover-foreground: 226 18% 99%;
-		--card: 226 54% 4%;
-		--card-foreground: 226 18% 99%;
-		--border: 226 5% 12%;
-		--input: 226 5% 12%;
-		--primary: 226 43% 67%;
-		--primary-foreground: 226 43% 7%;
-		--secondary: 346 43% 67%;
-		--secondary-foreground: 346 43% 7%;
-		--accent: 106 43% 67%;
-		--accent-foreground: 106 43% 7%;
-		--destructive: 6 81% 57%;
+		--background: 151 34% 3%;
+		--foreground: 151 36% 100%;
+		--muted: 151 24% 13%;
+		--muted-foreground: 151 15% 68%;
+		--popover: 151 34% 4%;
+		--popover-foreground: 0 0% 100%;
+		--card: 151 34% 4%;
+		--card-foreground: 0 0% 100%;
+		--border: 151 12% 13%;
+		--input: 151 12% 13%;
+		--primary: 151 80% 42%;
+		--primary-foreground: 151 80% 2%;
+		--secondary: 151 8% 8%;
+		--secondary-foreground: 151 8% 68%;
+		--accent: 151 13% 14%;
+		--accent-foreground: 151 13% 74%;
+		--destructive: 11 93% 48%;
 		--destructive-foreground: 0 0% 100%;
-		--ring: 226 43% 67%;
+		--ring: 151 80% 42%;
 	}
 }
 
@@ -82,7 +82,7 @@
 }
 
 .prose a {
-	@apply transition-all text-primary duration-200 underline-offset-4;
+	@apply transition-all text-primary duration-200 no-underline;
 }
 
 .prose .anchor:after {
@@ -99,7 +99,7 @@
 }
 
 .prose code {
-	@apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono  border font-semibold;
+	@apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono border font-semibold;
 }
 
 .prose pre code {

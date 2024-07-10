@@ -81,11 +81,7 @@ export const LinkPreview = ({
 					setOpen(open);
 				}}
 			>
-				<HoverCardPrimitive.Trigger
-					onMouseMove={handleMouseMove}
-					className={cn("text-primary underline-offset-4 hover:underline", className)}
-					href={url}
-				>
+				<HoverCardPrimitive.Trigger onMouseMove={handleMouseMove} className={cn("text-primary", className)} href={url}>
 					{children}
 				</HoverCardPrimitive.Trigger>
 

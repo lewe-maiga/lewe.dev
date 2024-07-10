@@ -37,7 +37,10 @@ interface CustomProps extends DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, 
 
 const mdxComponents: MDXComponents = {
 	a: ({ href, children }) => (
-		<LinkPreview className="text-primary underline-offset-4 hover:underline" url={href as string}>
+		<LinkPreview
+			className="text-primary inline-block relative w-fit after:block after:content-[''] after:absolute after:h-px duration-100 after:bg-primary after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left after:bottom-1"
+			url={href as string}
+		>
 			{children}
 		</LinkPreview>
 	),
