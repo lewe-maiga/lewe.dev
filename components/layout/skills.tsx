@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import BlurFade from "../blur-fade";
 import { AWSIcon } from "../icons/aws";
 import { DockerIcon } from "../icons/docker";
 import DynamodbIcon from "../icons/dynamodb";
@@ -19,63 +20,55 @@ import { TerraformIcon } from "../icons/terraform";
 import { TypescriptIcon } from "../icons/typescript";
 import { VercelIcon } from "../icons/vercel";
 
+const BLUR_FADE_DELAY = 0.04;
+
 export const Skills = () => {
 	return (
 		<section className="max-w-2xl px-4 ">
 			<div className="flex flex-col gap-4">
-				<h3 className="font-medium text-lg">Skills</h3>
+				<h3 className="font-medium">Skills</h3>
 				<p className="text-muted-foreground">These are some of the technologies I&apos;ve been working with.</p>
 				<div className="flex flex-col gap-4">
-					<div className="space-y-2">
-						<h4 className="font-medium">Web Development</h4>
-						<div className="flex flex-wrap gap-2 items-start mt-1">
-							<SkillItem Icon={ReactIcon} label="React" iconClassName="group-hover/skill:animate-spin" />
-
-							<SkillItem Icon={LaravelIcon} label="Laravel" />
-
-							<SkillItem Icon={NextjsIcon} label="Next.js" />
-
-							<SkillItem Icon={NestjsIcon} label="Nest.js" />
-
-							<SkillItem Icon={SassIcon} label="Sass" />
-
-							<SkillItem Icon={TailwindcssIcon} label="TailwindCSS" />
-
-							<SkillItem Icon={TypescriptIcon} label="Typescript" />
+					<BlurFade delay={BLUR_FADE_DELAY} inView>
+						<div className="space-y-2">
+							<h4 className="font-medium">Web Development</h4>
+							<div className="flex flex-wrap gap-2 items-start mt-1">
+								<SkillItem Icon={ReactIcon} label="React" iconClassName="group-hover/skill:animate-spin" />
+								<SkillItem Icon={LaravelIcon} label="Laravel" />
+								<SkillItem Icon={NextjsIcon} label="Next.js" />
+								<SkillItem Icon={NestjsIcon} label="Nest.js" />
+								<SkillItem Icon={SassIcon} label="Sass" />
+								<SkillItem Icon={TailwindcssIcon} label="TailwindCSS" />
+								<SkillItem Icon={TypescriptIcon} label="Typescript" />
+							</div>
 						</div>
-					</div>
-					<div className="space-y-2">
-						<h4 className="font-medium">Database</h4>
-						<div className="flex flex-wrap gap-2 items-start mt-1">
-							<SkillItem Icon={MysqlIcon} label="MySQL" />
-
-							<SkillItem Icon={PostgresqlIcon} label="PostgreSQL" />
-
-							<SkillItem Icon={DynamodbIcon} label="DynamoDB" />
-
-							<SkillItem Icon={MongodbIcon} label="MongoDB" />
+					</BlurFade>
+					<BlurFade delay={BLUR_FADE_DELAY * 4}>
+						<div className="space-y-2">
+							<h4 className="font-medium">Database</h4>
+							<div className="flex flex-wrap gap-2 items-start mt-1">
+								<SkillItem Icon={MysqlIcon} label="MySQL" />
+								<SkillItem Icon={PostgresqlIcon} label="PostgreSQL" />
+								<SkillItem Icon={DynamodbIcon} label="DynamoDB" />
+								<SkillItem Icon={MongodbIcon} label="MongoDB" />
+							</div>
 						</div>
-					</div>
-					<div className="space-y-2">
-						<h4 className="font-medium">DevOps</h4>
-						<div className="flex flex-wrap gap-2 items-start mt-1">
-							<SkillItem Icon={AWSIcon} label="Amazon Web Services" />
-
-							<SkillItem Icon={VercelIcon} label="Vercel" iconClassName="group-hover/skill:animate-slide-down" />
-
-							<SkillItem Icon={TerraformIcon} label="Terraform" />
-
-							<SkillItem Icon={GithubactionsIcon} label="GitHub Actions" />
-
-							<SkillItem Icon={SonarqubeIcon} label="SonarQube" />
-
-							<SkillItem Icon={DockerIcon} label="Docker" />
-
-							<SkillItem Icon={PythonIcon} label="Python" />
-
-							<SkillItem Icon={GitlabIcon} label="GitLab" />
+					</BlurFade>
+					<BlurFade delay={BLUR_FADE_DELAY * 5}>
+						<div className="space-y-2">
+							<h4 className="font-medium">DevOps</h4>
+							<div className="flex flex-wrap gap-2 items-start mt-1">
+								<SkillItem Icon={AWSIcon} label="Amazon Web Services" />
+								<SkillItem Icon={VercelIcon} label="Vercel" iconClassName="group-hover/skill:animate-slide-down" />
+								<SkillItem Icon={TerraformIcon} label="Terraform" />
+								<SkillItem Icon={GithubactionsIcon} label="GitHub Actions" />
+								<SkillItem Icon={SonarqubeIcon} label="SonarQube" />
+								<SkillItem Icon={DockerIcon} label="Docker" />
+								<SkillItem Icon={PythonIcon} label="Python" />
+								<SkillItem Icon={GitlabIcon} label="GitLab" />
+							</div>
 						</div>
-					</div>
+					</BlurFade>
 				</div>
 			</div>
 		</section>

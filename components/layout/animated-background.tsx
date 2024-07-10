@@ -5,7 +5,7 @@ export function AnimatedBackground() {
 	return (
 		<div className="w-full fixed inset-0 h-screen -z-10">
 			<div className="absolute h-2/3 top-0 inset-0 left-1/4">
-				<Meteors number={5} />
+				<Meteors number={4} />
 			</div>
 			<SparklesCore
 				id="tsparticlesfullpage"

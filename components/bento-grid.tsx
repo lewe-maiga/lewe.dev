@@ -31,10 +31,13 @@ export const BentoGridItem = ({ className, title, description, header, icon, tag
 	);
 };
 
+const BLUR_FADE_DELAY = 0.04;
+
 export function BentoGridThirdDemo() {
 	return (
 		<BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] mt-4 relative">
 			{items.map((item, i) => (
+				// <BlurFade key={i} delay={BLUR_FADE_DELAY * 6 + i * 0.05}>
 				<BentoGridItem
 					key={i}
 					title={item.title}
@@ -45,6 +48,7 @@ export function BentoGridThirdDemo() {
 					tag={item.tag}
 					url={item.url}
 				/>
+				// </BlurFade>
 			))}
 		</BentoGrid>
 	);

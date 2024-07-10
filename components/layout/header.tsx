@@ -12,7 +12,7 @@ export const Header = () => {
 						<AvatarFallback>LM</AvatarFallback>
 					</Avatar>
 					<div className="space-y-1">
-						<h1 className="scroll-m-20 text-xl md:text-3xl font-extrabold tracking-tight">Allewe Badra Aliyou MAIGA</h1>
+						<h1 className="scroll-m-20 text-lg md:text-3xl font-extrabold tracking-tight">Allewe Badra Aliyou MAIGA</h1>
 						<p className="text-sm text-muted-foreground">Software Engineer and DevOps</p>
 						<div>
 							<Badge className="gap-2 inline-flex text-green-700 bg-green-100">

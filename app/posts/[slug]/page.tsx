@@ -2,16 +2,19 @@ import { allPosts } from "@/.contentlayer/generated";
 import { CopyButton } from "@/components/copy-button";
 import { LinkPreview } from "@/components/link-preview";
 import { CardDemo } from "@/components/mdx/card-demo";
-import { ComponentPreview } from "@/components/mdx/component-preview";
 import { GradientBeam } from "@/components/mdx/gradiant-beam";
 import { ReadProgress } from "@/components/mdx/read-progess";
 import { TableOfContent } from "@/components/mdx/table-of-content";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { format, parseISO } from "date-fns";
+import { ArrowLeft } from "lucide-react";
 import { MDXComponents } from "mdx/types";
 import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import NextImage from "next/image";
+import Link from "next/link";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import readingDuration from "reading-duration";
 
@@ -56,9 +59,6 @@ const mdxComponents: MDXComponents = {
 	ul: (props) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />,
 	pre: ({ children, raw, ...props }: CustomProps) => {
 		const lang = props["data-language"];
-
-		console.log({ raw, lang });
-
 		return (
 			<pre {...props} className="mt-6 overflow-x-auto rounded-lg space-y-1 px-2">
 				<div className={"pl-4 flex items-center justify-between"}>
@@ -69,7 +69,7 @@ const mdxComponents: MDXComponents = {
 			</pre>
 		);
 	},
-	ComponentPreview,
+	Card,
 };
 
 export default function Page({ params }: { params: { slug: string } }) {
@@ -80,7 +80,13 @@ export default function Page({ params }: { params: { slug: string } }) {
 	return (
 		<>
 			<ReadProgress />
-			<main className="mx-auto max-w-2xl pt-10 md:pt-16 px-4 space-y-6 pb-20 relative">
+			<main className="mx-auto max-w-2xl my-10 md:my-16 px-4 space-y-6  relative">
+				<Button asChild variant={"link"} className="gap-2 pl-0 text-muted-foreground">
+					<Link href="/">
+						<ArrowLeft className="h-4 w-4" />
+						All Posts
+					</Link>
+				</Button>
 				<div>
 					<h1 className="scroll-m-20 text-4xl font-geist font-extrabold tracking-tight lg:text-5xl">{post.title}</h1>
 					<div className="flex items-center my-4 gap-2 text-sm text-muted-foreground">

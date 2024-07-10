@@ -7,7 +7,6 @@ import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import { ModeToggle } from "../theme-switcher";
 import { Dock, DockIcon } from "./dock";
 
@@ -34,29 +33,7 @@ const Icons = {
 			/>
 		</svg>
 	),
-	youtube: (props: IconProps) => (
-		<svg width="32px" height="32px" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
-			<title>youtube</title>
-			<path d="M29.41,9.26a3.5,3.5,0,0,0-2.47-2.47C24.76,6.2,16,6.2,16,6.2s-8.76,0-10.94.59A3.5,3.5,0,0,0,2.59,9.26,36.13,36.13,0,0,0,2,16a36.13,36.13,0,0,0,.59,6.74,3.5,3.5,0,0,0,2.47,2.47C7.24,25.8,16,25.8,16,25.8s8.76,0,10.94-.59a3.5,3.5,0,0,0,2.47-2.47A36.13,36.13,0,0,0,30,16,36.13,36.13,0,0,0,29.41,9.26ZM13.2,20.2V11.8L20.47,16Z" />
-		</svg>
-	),
-	instagram: (props: IconProps) => (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="2"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-		>
-			<rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-			<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-			<line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-		</svg>
-	),
+
 	github: (props: IconProps) => (
 		<svg viewBox="0 0 438.549 438.549" {...props}>
 			<path
@@ -99,58 +76,55 @@ const DATA = {
 	},
 };
 
-export function DockDemo() {
+export function Navbar() {
 	return (
-		<>
-			<motion.footer className="fixed bottom-4 z-50 left-1/2 -translate-x-1/2 px-4">
-				<Dock direction="middle">
-					{DATA.navbar.map((item) => (
-						<DockIcon key={item.href}>
-							<Tooltip>
-								<TooltipTrigger asChild>
-									<Link href={item.href} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 rounded-full")}>
-										<item.icon className="size-4" />
-									</Link>
-								</TooltipTrigger>
-								<TooltipContent>
-									<p>{item.label}</p>
-								</TooltipContent>
-							</Tooltip>
-						</DockIcon>
-					))}
-					<Separator orientation="vertical" className="h-full" />
-					{Object.entries(DATA.contact.social).map(([name, social]) => (
-						<DockIcon key={name}>
-							<Tooltip>
-								<TooltipTrigger asChild>
-									<Link href={social.url} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 rounded-full")}>
-										<social.icon className="size-4" />
-									</Link>
-								</TooltipTrigger>
-								<TooltipContent>
-									<p>{name}</p>
-								</TooltipContent>
-							</Tooltip>
-						</DockIcon>
-					))}
-					<Separator orientation="vertical" className="h-full py-2" />
-					<DockIcon>
+		<div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-4 flex origin-bottom h-full max-h-14">
+			<div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
+			<Dock
+				className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
+				direction="middle"
+			>
+				{DATA.navbar.map((item) => (
+					<DockIcon key={item.href}>
 						<Tooltip>
 							<TooltipTrigger asChild>
-								<ModeToggle className="rounded-full" />
+								<Link href={item.href} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 rounded-full")}>
+									<item.icon className="size-4" />
+								</Link>
 							</TooltipTrigger>
 							<TooltipContent>
-								<p>Theme</p>
+								<p>{item.label}</p>
 							</TooltipContent>
 						</Tooltip>
 					</DockIcon>
-				</Dock>
-			</motion.footer>
-
-			<motion.div
-				className="backdrop-blur-sm w-full fixed bottom-0 pointer-events-none h-[clamp(80px,10vh,200px)]"
-				style={{ maskImage: "linear-gradient(to top, #000 25%, transparent 100%)" }}
-			/>
-		</>
+				))}
+				<Separator orientation="vertical" className="h-full" />
+				{Object.entries(DATA.contact.social).map(([name, social]) => (
+					<DockIcon key={name}>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Link href={social.url} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 rounded-full")}>
+									<social.icon className="size-4" />
+								</Link>
+							</TooltipTrigger>
+							<TooltipContent>
+								<p>{name}</p>
+							</TooltipContent>
+						</Tooltip>
+					</DockIcon>
+				))}
+				<Separator orientation="vertical" className="h-full py-2" />
+				<DockIcon>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<ModeToggle className="rounded-full" />
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>Theme</p>
+						</TooltipContent>
+					</Tooltip>
+				</DockIcon>
+			</Dock>
+		</div>
 	);
 }
