@@ -4,7 +4,7 @@ import rehypePrettyCode, { LineElement } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { visit } from "unist-util-visit";
-
+import rehypeMetaAttributes from "./lib/rehype-meta-attributes";
 const Post = defineDocumentType(() => ({
 	name: "Post",
 	filePathPattern: `**/*.mdx`,
@@ -40,8 +40,6 @@ export default makeSource({
 						const [codeEl] = node.children;
 
 						if (codeEl.tagName !== "code") return;
-
-						console.log(codeEl.children?.[0].value);
 
 						node.raw = codeEl.children?.[0].value;
 					}
@@ -91,6 +89,7 @@ export default makeSource({
 					}
 				});
 			},
+			rehypeMetaAttributes,
 		],
 	},
 });

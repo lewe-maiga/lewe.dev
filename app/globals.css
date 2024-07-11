@@ -172,7 +172,13 @@ input[type="email"] {
 	@apply text-muted-foreground;
 }
 [data-rehype-pretty-code-figure] .line--highlighted {
-	@apply bg-primary/20 border-l-4 border-primary rounded;
+	@apply bg-primary/20 border-l-4 border-primary;
+}
+[data-rehype-pretty-code-figure] :nth-child(1 of .line--highlighted) {
+	@apply rounded-t;
+}
+[data-rehype-pretty-code-figure] :nth-last-child(1 of .line--highlighted) {
+	@apply rounded-b;
 }
 [data-rehype-pretty-code-figure] .line-highlighted span {
 	@apply relative;

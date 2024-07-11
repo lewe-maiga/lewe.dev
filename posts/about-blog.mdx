@@ -4,7 +4,7 @@ date: "2024-04-02"
 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cupiditate non nam inventore sed fuga vitae vero veritatis atque maiores."
 ---
 
-import {Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 
 <Image alt="My First Blog Thumbnail" src="/my-first-blog-thumbnail.jpg" />
@@ -17,28 +17,23 @@ Magni cupiditate non nam inventore sed fuga vitae vero veritatis atque maiores. 
 
 ```bash
 echo "Hello World !"
-# or
-print("Hello World !")
 ```
 
 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit repellendus est delectus minus repudiandae voluptatum. Minima adipisci optio fuga nobis alias excepturi doloribus, aliquid, provident molestiae impedit corporis. Doloribus, amet? Iusto, tenetur eos quam earum iste libero animi laudantium aliquid tempore mollitia, consectetur, quisquam in. Reiciendis expedita eum error [me](https://github.com/lewe-maiga) hic?
 
-<Card className="p-2 flex gap-2 flex-wrap">
-  <Button>Click Me</Button>
-  <Button variant={"secondary"}>Click Me</Button>
-  <Button variant={"destructive"}>Click Me</Button>
-  <Button variant={"outline"}>Click Me</Button>
-  <Button variant={"ghost"}>Click Me</Button>
-  <Button variant={"link"}>Click Me</Button>
-</Card>
 
 
-```tsx showLineNumbers {3}
-export const Button = () => {
-  return (
-    <button>Click Me</button>
-  )
-}
+
+```tsx live=true showLineNumbers {2}
+   <div className="flex items-center gap-3">
+    <Button>Click Me</Button>
+    <Button variant="secondary">Click Me</Button>
+    <Button variant="outline">Click Me</Button>
+    <Button variant="ghost">Click Me</Button>
+    <Button variant="link" asChild>
+      <motion.a whileTap={{ scale: 0.9 }}  href="######">Click Me</motion.a>
+    </Button>
+  </div>
 ```
 
 
@@ -49,7 +44,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi fuga ab laboriosa
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime natus dolorem nesciunt eum alias earum perspiciatis totam, eius tenetur ut soluta. Nostrum sit corrupti explicabo nobis velit, tempore eaque, illo ad minus, culpa saepe quos? Libero error recusandae iste ducimus, laborum cum, voluptatum amet sunt, architecto iure reiciendis! Ducimus minima dolorum laboriosam quis iure alias quae quos, esse natus earum. Quasi quae sit porro sed culpa autem? Blanditiis, quae sed enim veniam harum aperiam perferendis. Tenetur sunt veniam quisquam, laborum nam explicabo dolores doloremque nisi possimus expedita tempore dignissimos iste maxime sit officia enim nulla rem, repellat laudantium cum consequuntur. Unde neque sint voluptate temporibus tempora error porro inventore voluptatibus dicta enim itaque, ipsam, obcaecati sapiente accusamus consectetur, quibusdam corrupti adipisci nisi ad et totam? Minima similique molestias autem at dolorum itaque nesciunt quod labore voluptatem, commodi unde quos, aut esse suscipit consequatur mollitia quam pariatur corporis nulla exercitationem non laborum? Nulla distinctio ullam voluptatum beatae animi, nemo, consectetur inventore dolorum recusandae porro sapiente, itaque nostrum esse mollitia deleniti dicta ratione odio quia a ut? Ex mollitia quasi dicta eius. Illo inventore pariatur saepe ex quas dolore, alias totam doloremque et, nam id tempora facere assumenda perferendis minima nostrum dicta? Eligendi repellat aliquid laudantium, consectetur, aliquam, voluptas voluptatum sed alias quae sit cumque inventore! [`aws`](https://aws.amazon.com) recusandae omnis ratione natus, culpa perferendis iusto cupiditate at eius repudiandae dolor. 
 
 
-<Card className="p-2 items-start justify-center">
+<Card className="p-2 items-start justify-center flex">
   <CardDemo />
 </Card>
 
@@ -61,7 +56,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime natus dolorem ne
 
 Aliquid labore numquam voluptate accusantium id consequatur necessitatibus tenetur inventore quo recusandae? Quidem rem illo totam, cupiditate eligendi consequatur non eos esse molestias maiores suscipit! Aut, laborum laudantium ullam ut odit facere eum facilis animi necessitatibus, labore iure natus. Placeat aspernatur, impedit architecto esse incidunt ducimus porro. Vitae nobis modi numquam. Asperiores provident, officiis et excepturi id facilis voluptatum unde officia cumque facere qui consequuntur in. Enim veniam praesentium accusantium maiores eum esse corrupti explicabo placeat nam amet, repellat inventore saepe qui sit sequi! Delectus adipisci, voluptas exercitationem, hic consequatur, excepturi numquam commodi illo impedit sapiente dignissimos maiores sed! Maiores optio exercitationem voluptatibus similique dolorum ipsa, molestiae expedita pariatur laboriosam perspiciatis aliquid quam facilis a reprehenderit. Dolor assumenda, optio odit voluptates mollitia ipsam dolorem qui sit tempore est suscipit dolorum dicta possimus numquam magnam officiis consequuntur aut veritatis. Inventore quis quasi dicta dolores eaque quo rem doloribus cupiditate similique, consequatur magnam omnis suscipit porro voluptate incidunt aspernatur id voluptas dignissimos. Sed aliquid ut eum error odit dolore numquam cumque porro nostrum fugiat nesciunt nihil, quis voluptatibus. Velit minus tempore rem sit voluptatum earum nemo ad, facere, doloremque laudantium repellendus, nam illo quod facilis aperiam quas magni quo architecto? Obcaecati rerum soluta quis, dolore cupiditate nihil earum placeat labore odio, qui doloribus recusandae, dicta ratione?
 
-<Card>
+<Card className="p-2 flex items-center justify-center">
   <GradientBeam />
 </Card>
 
