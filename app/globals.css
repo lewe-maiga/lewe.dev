@@ -155,21 +155,20 @@ input[type="email"] {
 }
 
 [data-rehype-pretty-code-figure] code {
-	@apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
+	@apply grid min-w-full break-words rounded-none border-0 bg-transparent text-[13px] leading-6 text-foreground  p-0;
 	counter-reset: line;
 	box-decoration-break: clone;
 }
 [data-rehype-pretty-code-figure] [data-line] {
-	@apply py-1 border-l-4 border-transparent;
+	@apply py-1 border-transparent border-l-transparent pl-2 pr-3;
 }
 [data-rehype-pretty-code-figure] [data-line-numbers] > [data-line]::before {
 	counter-increment: line;
 	content: counter(line);
 	display: inline-block;
 	width: 1rem;
-	margin-right: 1rem;
 	text-align: right;
-	@apply text-muted-foreground;
+	@apply text-muted-foreground mr-3;
 }
 [data-rehype-pretty-code-figure] .line--highlighted {
 	@apply bg-primary/20 border-l-4 border-primary;
@@ -184,7 +183,7 @@ input[type="email"] {
 	@apply relative;
 }
 [data-rehype-pretty-code-figure] .word--highlighted {
-	@apply rounded-md bg-slate-500 bg-opacity-10 p-1;
+	@apply rounded bg-primary/20 border-primary;
 }
 [data-rehype-pretty-code-title] {
 	@apply px-4 py-3 font-mono text-xs font-medium border rounded-t-lg text-neutral-200 border-[#333333] bg-[#1c1c1c];

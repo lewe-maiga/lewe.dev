@@ -1,10 +1,11 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypePrettyCode, { LineElement } from "rehype-pretty-code";
+import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { visit } from "unist-util-visit";
 import rehypeMetaAttributes from "./lib/rehype-meta-attributes";
+import { rehypePrettyCodeOptions } from "./lib/rehype-pretty-code";
 const Post = defineDocumentType(() => ({
 	name: "Post",
 	filePathPattern: `**/*.mdx`,
@@ -47,25 +48,9 @@ export default makeSource({
 			},
 			rehypeSlug,
 
-			[
-				//@ts-ignore
-				rehypePrettyCode,
-				{
-					theme: "one-dark-pro",
-					onVisitLine(node: LineElement): void {
-						if (node.children.length === 0) {
-							// if code block has a empty line, add a space instead of keeping it blank
-							node.children = [{ type: "text", value: " " }];
-						}
-					},
-					onVisitHighlightedLine(node: LineElement) {
-						node.properties.className = ["line--highlighted"];
-					},
-					onVisitHighlightedWord(node: LineElement) {
-						node.properties.className = ["word--highlighted"];
-					},
-				},
-			],
+			// @ts-ignore
+			[rehypePrettyCode, rehypePrettyCodeOptions],
+			// [rehypePrettyCodeClasses],
 			[
 				rehypeAutolinkHeadings,
 				{

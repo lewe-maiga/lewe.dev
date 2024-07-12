@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { LivePreview as LiveCode, LiveError, LiveProvider } from "react-live";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
-import { ScrollArea } from "../ui/scroll-area";
+import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 
 const MotionCopy = motion(Copy);
 const MotionCopyCheck = motion(CopyCheck);
@@ -31,7 +31,7 @@ export const CopyButton = React.forwardRef<HTMLButtonElement, CopyButtonProps>((
 		<AnimatePresence>
 			<Button
 				variant={"ghost"}
-				className="bg-white/5 size-8 hover:bg-white/20 !text-white absolute top-2 right-2 opacity-0 group-hover/code:opacity-100 transition-opacity duration-100"
+				className="bg-white/5 size-8 hover:bg-white/20 !text-white absolute bottom-2 right-2 opacity-0 group-hover/code:opacity-100 transition-opacity duration-100"
 				size={"icon"}
 				onClick={copy}
 			>
@@ -99,37 +99,46 @@ Content.displayName = "CodeBlock.Content";
 interface PreProps extends React.ComponentPropsWithoutRef<"pre"> {
 	overflow?: "scroll" | "hidden";
 }
-const Pre = React.forwardRef<HTMLPreElement, PreProps>(({ className, overflow = "hidden", ...props }, ref) => {
+const Pre = React.forwardRef<HTMLPreElement, PreProps>(({ className, overflow = "scroll", ...props }, ref) => {
 	if (overflow === "hidden") {
 		return (
-			<pre ref={ref} className={cn("overflow-hidden relative h-full space-y-1 py-3 px-4 text-sm whitespace-pre rounded-lg", className)} {...props} />
+			<pre
+				ref={ref}
+				className={cn("overflow-hidden relative h-full px-4 text-sm whitespace-pre rounded-lg overflow-x-auto py-2 ", className)}
+				{...props}
+			/>
 		);
 	}
 	return (
 		<ScrollArea>
-			<pre ref={ref} className={cn("h-full space-y-1 py-3 px-4 text-sm whitespace-pre relative", className)} {...props} />
+			<pre ref={ref} className={cn("relative h-full whitespace-pre rounded-lg overflow-x-auto py-2 ", className)} {...props} />
+			<ScrollBar orientation="horizontal" />
 		</ScrollArea>
 	);
 });
 
+Pre.displayName = "CodeBlock.Pre";
+
 type LivePreviewProps = React.ComponentPropsWithoutRef<typeof Card> & {
 	code: string;
+	scroll?: boolean;
 };
 
-const LivePreview = React.forwardRef<HTMLDivElement, LivePreviewProps>(({ className, code, ...props }, ref) => (
+const LivePreview = React.forwardRef<HTMLDivElement, LivePreviewProps>(({ className, code, scroll = false, ...props }, ref) => (
 	<Card className={cn("p-4", className)} ref={ref} {...props}>
 		<ScrollArea>
-			<LiveProvider code={code} scope={{ Button, motion }} transformCode={(code) => `<>${code}</>`}>
-				<LiveCode />
-				<LiveError className="text-destructive-foreground bg-destructive bg-red-100 mt-2" />
-			</LiveProvider>
+			<div data-scroll={scroll}>
+				<LiveProvider code={code} scope={{ React, Button, motion }} language="tsx" enableTypeScript>
+					<LiveCode />
+					<LiveError className="text-destructive-foreground bg-destructive border rounded px-2" />
+				</LiveProvider>
+			</div>
+			<ScrollBar orientation="horizontal" />
 		</ScrollArea>
 	</Card>
 ));
 
 LivePreview.displayName = "CodeBlock.LivePreview";
-
-Pre.displayName = "CodeBlock.Pre";
 
 export const CodeBlock = {
 	Root: Root,

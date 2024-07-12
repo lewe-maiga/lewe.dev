@@ -66,7 +66,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 	return (
 		<>
 			<ReadProgress />
-			<main className="mx-auto max-w-2xl my-10 md:my-16 px-4 space-y-6  relative">
+			<main className="mx-auto max-w-2xl my-10 md:my-16 px-4 space-y-6 pb-24 relative">
 				<Button asChild variant={"link"} className="gap-2 pl-0 text-muted-foreground">
 					<Link href="/">
 						<ArrowLeft className="h-4 w-4" />
