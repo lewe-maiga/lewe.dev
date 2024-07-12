@@ -160,7 +160,7 @@ input[type="email"] {
 	box-decoration-break: clone;
 }
 [data-rehype-pretty-code-figure] [data-line] {
-	@apply py-1 border-transparent border-l-transparent pl-2 pr-3;
+	@apply py-1 border-transparent border-l-transparent border-l-4 pl-1 pr-3;
 }
 [data-rehype-pretty-code-figure] [data-line-numbers] > [data-line]::before {
 	counter-increment: line;
