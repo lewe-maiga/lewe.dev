@@ -26,9 +26,6 @@
       "@/*": [
         "./*"
       ],
-      "contentlayer/generated": [
-        "./.contentlayer/generated"
-      ]
     }
   },
   "include": [
@@ -37,7 +34,6 @@
     "**/*.tsx",
     "**/*.mdx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated"
   ],
   "exclude": [
     "node_modules"

@@ -9,7 +9,7 @@ export function CardDemo() {
 	return (
 		<Card
 			className={cn(
-				"max-w-sm w-full mx-auto p-8 rounded-xl border   bg-muted/40 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group relative overflow-hidden"
+				"max-w-sm w-full mx-auto p-8 rounded-xl border   bg-muted/40 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group relative overflow-hidden not-prose"
 			)}
 		>
 			<CardSkeletonContainer>

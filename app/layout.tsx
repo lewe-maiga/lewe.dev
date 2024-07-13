@@ -2,12 +2,14 @@ import { Navbar } from "@/components/layout/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
+import { RootProvider } from "fumadocs-ui/provider";
+import "fumadocs-ui/twoslash.css";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import { JetBrains_Mono, Poppins } from "next/font/google";
 import "./globals.css";
-
+import { Banner } from "fumadocs-ui/components/banner";
 const poppins = Poppins({
 	subsets: ["latin"],
 	weight: ["400"],
@@ -64,7 +66,7 @@ export const viewport: Viewport = {
 	],
 };
 
-export default function RootLayout({
+export default function Page({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
@@ -72,17 +74,16 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={cn("font-sans antialiased overflow-visible", poppins.variable, jetbrains.variable, GeistSans.variable)}>
-				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-					<TooltipProvider>
-						<div className="bg-primary">
-							<div className="max-w-screen-xl mx-auto px-4 py-2 text-primary-foreground text-center md:px-8">
-								<p className="font-medium">Website under construction</p>
-							</div>
-						</div>
-						{children}
-						<Navbar />
-					</TooltipProvider>
-				</ThemeProvider>
+				<RootProvider>
+					<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+						<TooltipProvider>
+							<Banner>Website under construction</Banner>
+
+							{children}
+							<Navbar />
+						</TooltipProvider>
+					</ThemeProvider>
+				</RootProvider>
 				<Analytics />
 			</body>
 		</html>

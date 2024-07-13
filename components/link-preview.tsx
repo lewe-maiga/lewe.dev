@@ -2,8 +2,8 @@
 import { cn } from "@/lib/utils";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
+import Link from "fumadocs-core/link";
 import Image from "next/image";
-import Link from "next/link";
 import { encode } from "qss";
 import React from "react";
 

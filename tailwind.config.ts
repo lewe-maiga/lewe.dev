@@ -1,9 +1,20 @@
+import { createPreset } from "fumadocs-ui/tailwind-plugin";
 import type { Config } from "tailwindcss";
 const { fontFamily } = require("tailwindcss/defaultTheme");
 const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
+
 const config = {
 	darkMode: ["class"],
-	content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}", "./posts/**/*.{md,mdx}"],
+	presets: [createPreset()],
+	content: [
+		"./pages/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}",
+		"./node_modules/fumadocs-ui/dist/**/*.js",
+		"./components/**/*.{ts,tsx}",
+		"./app/**/*.{ts,tsx}",
+		"./content/**/*.mdx",
+		"./mdx-components.tsx",
+	],
 	prefix: "",
 	theme: {
 		container: {

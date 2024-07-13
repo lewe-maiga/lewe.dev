@@ -1,6 +1,6 @@
-import { allPosts } from "contentlayer/generated";
-
 const WEBSITE_HOST_URL = "https://www.lewe.dev";
+
+const allPosts: any[] = [];
 
 export default async function sitemap() {
 	const posts = allPosts.map((post) => ({

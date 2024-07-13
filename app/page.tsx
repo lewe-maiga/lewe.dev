@@ -1,4 +1,4 @@
-import { allPosts } from "@/.contentlayer/generated";
+import { posts } from "@/app/source";
 import { BentoGridThirdDemo } from "@/components/bento-grid";
 import BlurFade from "@/components/blur-fade";
 import { BorderBeam } from "@/components/border-beam";
@@ -68,7 +68,10 @@ const DATA = {
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
-	const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))).slice(0, 3);
+	const sortedPost = posts
+		.getPages()
+		.sort((a, b) => compareDesc(new Date(a.data.date), new Date(b.data.date)))
+		.slice(0, 3);
 	return (
 		<>
 			<AnimatedBackground />
@@ -116,8 +119,8 @@ export default function Home() {
 						<h3 className="font-medium text-lg">Explore my posts</h3>
 						<p className="text-muted-foreground text-sm mt-2">These are some of the posts I&apos;ve written.</p>
 						<ul className="space-y-6 mt-2">
-							{posts.map((post) => (
-								<PostCard key={post._raw.flattenedPath} post={post} />
+							{sortedPost.map((post) => (
+								<PostCard key={post.url} post={post} />
 							))}
 						</ul>
 					</div>

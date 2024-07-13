@@ -1,9 +1,9 @@
-import { allPosts } from "@/.contentlayer/generated";
 import { AnimatedBackground } from "@/components/layout/animated-background";
 import { PostCard } from "@/components/layout/post-card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { posts } from "../source";
 
 export const metadata = {
 	title: "Lewe Maiga - Posts",
@@ -11,7 +11,6 @@ export const metadata = {
 };
 
 export default function Page() {
-	const posts = allPosts;
 	return (
 		<>
 			<AnimatedBackground />
@@ -27,8 +26,8 @@ export default function Page() {
 					<p className="text-muted-foreground text-sm mt-2">These are some of the posts I&apos;ve written.</p>
 				</div>
 				<ul className="flex flex-col gap-4">
-					{posts.map((post) => (
-						<PostCard key={post._raw.flattenedPath} post={post} />
+					{posts.getPages().map((post) => (
+						<PostCard key={post.url} post={post} />
 					))}
 				</ul>
 			</main>
