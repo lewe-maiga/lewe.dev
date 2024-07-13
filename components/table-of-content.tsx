@@ -2,7 +2,7 @@
 
 import { useProgress } from "@/hooks/useProgress";
 import { cn } from "@/lib/utils";
-import { motion, useReducedMotion, useSpring } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { TableOfContents } from "fumadocs-core/server";
 import React, { useEffect } from "react";
 
@@ -10,7 +10,7 @@ import type { TOCItemType } from "fumadocs-core/server";
 import * as Primitive from "fumadocs-core/toc-internal";
 import { Text } from "lucide-react";
 import { useCallback, useRef, type ReactElement, type ReactNode } from "react";
-import { ScrollArea } from "../ui/scroll-area";
+import { ScrollArea } from "./ui/scroll-area";
 
 type PosType = [top: number, height: number];
 interface TOCProps {
@@ -132,11 +132,7 @@ type ProgressBarProps = {
 const ProgressBar = ({ progress }: ProgressBarProps) => {
 	const [visibility, setVisibility] = React.useState(true);
 	const shouldReduceMotion = useReducedMotion();
-	const scaleX = useSpring(progress, {
-		stiffness: 100,
-		damping: 30,
-		restDelta: 0.001,
-	});
+
 	const progressBarWrapperVariants = {
 		hide: {
 			opacity: shouldReduceMotion ? 1 : 0,
@@ -165,8 +161,6 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
 					className="bg-primary/50 w-[2px] h-full origin-top"
 				/>
 			</motion.div>
-
-			<motion.div className="fixed top-0 inset-x-0 h-[2px] z-50 bg-primary origin-left md:hidden" style={{ scaleX }} aria-hidden="true" />
 		</>
 	);
 };

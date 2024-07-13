@@ -1,6 +1,7 @@
 import { posts } from "@/app/source";
-import { CardDemo } from "@/components/mdx/card-demo";
-import { TableOfContent } from "@/components/mdx/table-of-content";
+import { CardDemo } from "@/components/card-demo";
+import { ReadProgress } from "@/components/read-progess";
+import { TableOfContent } from "@/components/table-of-content";
 import { format } from "date-fns";
 import { DocsBody } from "fumadocs-ui/page";
 import { Metadata } from "next";
@@ -34,6 +35,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
 
 	return (
 		<main className="mx-auto max-w-2xl px-4 pb-24 flex w-full flex-1 flex-col gap-6 pt-10 md:px-6 md:pt-12 relative">
+			<ReadProgress />
 			<div>
 				<h1 className="scroll-m-20 text-4xl font-geist font-extrabold tracking-tight lg:text-5xl">{post.data.title}</h1>
 				<div className="flex items-center my-4 gap-2 text-sm text-muted-foreground">

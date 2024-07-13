@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { animate, motion } from "framer-motion";
 import { Bot } from "lucide-react";
 import React, { useEffect } from "react";
-import { Card, CardDescription, CardTitle } from "../ui/card";
+import { Card, CardDescription, CardTitle } from "./ui/card";
 
 export function CardDemo() {
 	return (
