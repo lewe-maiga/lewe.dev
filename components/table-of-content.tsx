@@ -30,7 +30,7 @@ const TocProvider = Primitive.AnchorProvider;
 
 export function Toc({ items, header, footer }: TOCProps): ReactElement {
 	return (
-		<div className="relative flex h-dvh w-[220px] shrink-0 flex-col gap-4 pe-2 pt-12 max-lg:hidden xl:w-[260px] mb-6 ml-6 p-0 ">
+		<div className="relative flex h-dvh w-40 shrink-0 flex-col gap-4 pe-2 pt-12 max-lg:hidden xl:w-[260px] mb-6 ml-6 p-0 ">
 			{header}
 			<h3 className="-mb-1 -ms-0.5 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
 				<Text className="size-4" />
@@ -59,7 +59,7 @@ function TOCItems({ items, isMenu = false }: { items: TOCItemType[]; isMenu?: bo
 
 	return (
 		<ScrollArea className={cn("flex flex-col", isMenu && "-mx-3")}>
-			<div role="none" ref={markerRef} className="absolute start-0 hidden w-0.5 bg-primary/50 transition-all" />
+			<div role="none" ref={markerRef} className="absolute start-0 hidden w-0.5 bg-primary transition-all" />
 			<Primitive.ScrollProvider containerRef={containerRef}>
 				<div className={cn("flex flex-col gap-1 text-muted-foreground", !isMenu && "border-s-2")}>
 					{items.map((item) => (
@@ -83,7 +83,7 @@ function TOCItem({ item, setMarker }: { item: TOCItemType; setMarker: (v: PosTyp
 				if (active && element) setMarker([element.offsetTop, element.clientHeight]);
 			}}
 			className={cn(
-				"py-1 transition-colors data-[active=true]:font-medium data-[active=true]:text-primary",
+				"py-1 transition-colors data-[active=true]:font-medium text-wrap line-clamp-2 data-[active=true]:text-primary",
 				item.depth <= 2 && "ps-4",
 				item.depth === 3 && "ps-7",
 				item.depth >= 4 && "ps-10"
@@ -119,7 +119,7 @@ export function TableOfContent({ toc }: TableOfContentProps) {
 		<TocProvider toc={toc}>
 			<motion.div hidden={!shouldShowTableOfContent} className={cn("top-52 fixed left-2.5 hidden md:flex")}>
 				<ProgressBar progress={readingProgress} />
-				<motion.div variants={variants} animate="show" transition={{ type: "spring" }} custom={shouldShowTableOfContent} className=" lg:block hidden">
+				<motion.div variants={variants} animate="show" transition={{ type: "spring" }} custom={shouldShowTableOfContent} className="lg:block hidden">
 					<Toc items={toc} />
 				</motion.div>
 			</motion.div>
@@ -158,7 +158,7 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
 					style={{
 						scaleY: progress,
 					}}
-					className="bg-primary/50 w-[2px] h-full origin-top"
+					className="bg-primary w-[2px] h-full origin-top"
 				/>
 			</motion.div>
 		</>

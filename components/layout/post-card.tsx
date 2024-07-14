@@ -20,7 +20,7 @@ export function PostCard({ post }: Props) {
 								{post.data.description}
 							</CardDescription>
 						</div>
-						<div className="mt-5 space-y-4 text-sm sm:mt-0 sm:space-y-2 group-hover/post:-translate-x-2 duration-200">
+						<div className="mt-5 space-y-4 text-sm sm:mt-0 sm:space-y-2 md:group-hover/post:-translate-x-2  duration-200">
 							<span className="flex items-center text-muted-foreground">
 								<CalendarIcon className="mr-2 h-4 w-4" />
 								{format(post.data.date, "LLLL d, yyyy")}

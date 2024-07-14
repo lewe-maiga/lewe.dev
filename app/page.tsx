@@ -127,11 +127,11 @@ export default function Home() {
 				</section>
 
 				<section id="contact">
-					<div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
+					<div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full">
 						<BlurFade delay={BLUR_FADE_DELAY} inView>
 							<div className="space-y-3">
 								<h2 className="text-xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
-								<p className="mx-auto max-w-[600px] text-muted-foreground">
+								<p className="mx-auto max-w-2xl text-sm text-muted-foreground">
 									Want to chat or ask a question? Feel free to send me a private message on my social networks, including{" "}
 									<Link className="text-primary underline-offset-4 hover:underline" href={"https://x.com/lewe_maiga"}>
 										X
