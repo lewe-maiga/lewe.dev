@@ -3,7 +3,7 @@ import { CONFIG } from "@/data/config";
 import BlurFade from "./blur-fade";
 import BoxReveal from "./box-reveal";
 
-const BOX_REVEAL_DURATION = 0.5;
+const BOX_REVEAL_DURATION = 0.04;
 
 export const Header = () => {
 	return (
@@ -34,7 +34,7 @@ export const Header = () => {
 					</div>
 				</div>
 				<section className="flex flex-col gap-4">
-					<BlurFade>
+					<BlurFade delay={BOX_REVEAL_DURATION * 2}>
 						<h3 className="font-medium">About me</h3>
 						<p className="text-muted-foreground leading-7">{CONFIG.summary}</p>
 					</BlurFade>

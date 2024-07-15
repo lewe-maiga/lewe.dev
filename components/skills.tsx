@@ -84,7 +84,7 @@ function SkillItem({ label, Icon, iconClassName }: SkillItemProps) {
 	return (
 		<div
 			className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background h-10 px-2 py-2 gap-2 group/skill hover:text-accent-foreground   dark:text-muted-foreground dark:bg-[rgba(40,40,40)]
-      hover:bg-accent/20 hover:scale-[0.98] dark:border dark:hover:bg-white/10 overflow-hidden dark:bg-[rgba(40,40,40,0.5)] relative dark:border-[rgba(255,_255,_255,_0.20)] dark:shadow-[0px_0px_8px_0px_rgba(248,248,248,0.08)_inset,0px_32px_24px_-16px_rgba(0,_0,_0,_0.40)_inset] transition-colors duration-200"
+      hover:bg-accent/20 hover:scale-[0.98] dark:border dark:hover:bg-white/10 overflow-hidden dark:bg-[rgba(40,40,40,0.5)] relative dark:border-[rgba(255,_255,_255,_0.20)] dark:shadow-[0px_0px_8px_0px_rgba(248,248,248,0.08)_inset,0px_32px_24px_-16px_rgba(0,_0,_0,_0.40)_inset] transition duration-200"
 		>
 			<Icon className={cn("size-5 group-hover/skill:animate-pulse", iconClassName)} />
 			{label}
