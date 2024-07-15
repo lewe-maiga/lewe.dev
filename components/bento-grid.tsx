@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Box, File, Headphones, SendToBackIcon, Signature, TableColumnsSplit } from "lucide-react";
+import { File, Headphones, SendToBackIcon, Signature, TableColumnsSplit } from "lucide-react";
 import Image from "next/image";
 import React, { useId } from "react";
 import { StrapiIcon } from "./icons/strapi";
@@ -31,8 +31,6 @@ export const BentoGridItem = ({ className, title, description, header, icon, tag
 		</Card>
 	);
 };
-
-const BLUR_FADE_DELAY = 0.04;
 
 export function BentoGridThirdDemo() {
 	return (
@@ -250,7 +248,7 @@ const items: Item[] = [
 		title: "Online library backend",
 		description: "Create and manage your online library with ease.",
 		header: <SkeletonOne />,
-		className: "md:col-span-1",
+		className: "md:col-span-2",
 		icon: <SendToBackIcon className="h-4 w-4 text-muted-foreground" />,
 		url: "https://github.com/lewe-maiga/online-library-backend",
 		tag: <Badge className="bg-violet-600 group-hover/bento:bg-violet-500 text-violet-50 transition duration-200">Strapi</Badge>,
@@ -285,15 +283,15 @@ const items: Item[] = [
 		url: "",
 	},
 
-	{
-		title: "Text Summarization",
-		description: <span className="text-sm">Summarize your lengthy documents with AI technology.</span>,
-		header: <SkeletonFive />,
-		className: "md:col-span-1",
-		icon: <Box className="h-4 w-4 text-muted-foreground" />,
-		tag: <Badge className="bg-violet-400">Strapi</Badge>,
-		url: "",
-	},
+	// {
+	// 	title: "Text Summarization",
+	// 	description: <span className="text-sm">Summarize your lengthy documents with AI technology.</span>,
+	// 	header: <SkeletonFive />,
+	// 	className: "md:col-span-1",
+	// 	icon: <Box className="h-4 w-4 text-muted-foreground" />,
+	// 	tag: <Badge className="bg-violet-400">Strapi</Badge>,
+	// 	url: "",
+	// },
 ];
 
 export const Grid = ({ pattern, size }: { pattern?: number[][]; size?: number }) => {
