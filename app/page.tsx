@@ -11,7 +11,7 @@ import { CONFIG } from "@/data/config";
 import { compareDesc } from "date-fns";
 import Link from "next/link";
 
-const BLUR_FADE_DELAY = 0.02;
+const BLUR_FADE_DELAY = 0.5;
 
 export default function Home() {
 	const sortedPost = posts
