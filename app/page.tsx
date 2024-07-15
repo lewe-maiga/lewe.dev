@@ -11,7 +11,7 @@ import { CONFIG } from "@/data/config";
 import { compareDesc } from "date-fns";
 import Link from "next/link";
 
-const BLUR_FADE_DELAY = 0.2;
+const BLUR_FADE_DELAY = 0.04;
 
 export default function Home() {
 	const sortedPost = posts
@@ -26,11 +26,11 @@ export default function Home() {
 				<Header />
 				<section id="work" className="max-w-2xl px-4">
 					<div className="flex min-h-0 flex-col gap-4">
-						<BlurFade delay={BLUR_FADE_DELAY * 2} inView>
+						<BlurFade delay={BLUR_FADE_DELAY + 0.05} inView>
 							<h3 className="font-medium">Work Experience</h3>
 						</BlurFade>
 						{CONFIG.work.map((work, id) => (
-							<BlurFade key={work.company} inView delay={BLUR_FADE_DELAY + id * 0.05}>
+							<BlurFade key={work.company} inView delay={BLUR_FADE_DELAY + id * 0.005}>
 								<ResumeCard
 									key={work.company}
 									logoUrl={work.logoUrl}

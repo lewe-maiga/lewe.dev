@@ -3,7 +3,7 @@ import { CONFIG } from "@/data/config";
 import BlurFade from "./blur-fade";
 import BoxReveal from "./box-reveal";
 
-const BOX_REVEAL_DURATION = 0.2;
+const BOX_REVEAL_DURATION = 0.25;
 
 export const Header = () => {
 	return (
