@@ -30,7 +30,7 @@ export default function Home() {
 							<h3 className="font-medium">Work Experience</h3>
 						</BlurFade>
 						{CONFIG.work.map((work, id) => (
-							<BlurFade key={work.company} inView delay={BLUR_FADE_DELAY * 3 + id * 0.05}>
+							<BlurFade key={work.company} inView delay={BLUR_FADE_DELAY + id * 0.05}>
 								<ResumeCard
 									key={work.company}
 									logoUrl={work.logoUrl}
