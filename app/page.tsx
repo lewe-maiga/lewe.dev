@@ -26,7 +26,7 @@ export default function Home() {
 				<Header />
 				<section id="work" className="max-w-2xl px-4">
 					<div className="flex min-h-0 flex-col gap-4">
-						<BlurFade delay={BLUR_FADE_DELAY * 3} inView>
+						<BlurFade delay={BLUR_FADE_DELAY * 2} inView>
 							<h3 className="font-medium">Work Experience</h3>
 						</BlurFade>
 						{CONFIG.work.map((work, id) => (
