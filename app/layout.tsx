@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { CONFIG } from "@/data/config";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 import { Banner } from "fumadocs-ui/components/banner";
@@ -23,14 +24,14 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Lewe Maiga",
-	description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
-	metadataBase: new URL("https://lewe.dev"),
+	title: CONFIG.name,
+	description: CONFIG.description,
+	metadataBase: new URL(CONFIG.url),
 
 	twitter: {
 		card: "summary_large_image",
-		title: "Lewe Maiga",
-		description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
+		title: CONFIG.name,
+		description: CONFIG.description,
 		creator: "@lewe_maiga",
 		images: [
 			{
@@ -42,10 +43,10 @@ export const metadata: Metadata = {
 	},
 
 	openGraph: {
-		title: "Lewe Maiga",
-		description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
-		url: "https://lewe.dev",
-		siteName: "Lewe Maiga",
+		title: CONFIG.name,
+		description: CONFIG.description,
+		url: new URL(CONFIG.url),
+		siteName: CONFIG.name,
 		countryName: "Morocco",
 		images: [
 			{

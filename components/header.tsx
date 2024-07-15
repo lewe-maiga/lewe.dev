@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { CONFIG } from "@/data/config";
 import { Code } from "./code";
 
 export const Header = () => {
@@ -8,29 +8,27 @@ export const Header = () => {
 			<div className="flex flex-col gap-8">
 				<div className="flex items-center gap-4">
 					<Avatar className="size-24">
-						<AvatarImage src="/profile.jpg" alt="Profile picture" />
-						<AvatarFallback>LM</AvatarFallback>
+						<AvatarImage src={CONFIG.avatarUrl} alt={CONFIG.name} />
+						<AvatarFallback>{CONFIG.initials}</AvatarFallback>
 					</Avatar>
 					<div className="space-y-1">
-						<h1 className="scroll-m-20 text-lg md:text-3xl font-extrabold tracking-tight">Allewe Badra Aliyou MAIGA</h1>
-						<p className="text-sm text-muted-foreground">Software Engineer and DevOps</p>
+						<h1 className="scroll-m-20 text-lg md:text-3xl font-extrabold tracking-tight">{CONFIG.fullname}</h1>
+						<p className="text-sm text-muted-foreground">
+							<Code>{CONFIG.bio}</Code>
+						</p>
 						<div>
-							<Badge className="gap-2 inline-flex text-green-700 bg-green-100">
-								<span className="inline-flex size-2 rounded-full bg-green-500"></span>
+							<div className="gap-2 inline-flex items-center bg-green-100 rounded-full px-3 py-0.5 text-sm font-medium text-green-800 dark:text-green-50 dark:bg-green-400">
+								<span className="inline-flex size-2 rounded-full bg-green-400 dark:bg-green-50"></span>
 								Available for work
-							</Badge>
+							</div>
 						</div>
 					</div>
 				</div>
 				<section className="flex flex-col gap-4">
 					<h3 className="font-medium">About me</h3>
+					<p className="text-muted-foreground leading-7">{CONFIG.summary}</p>
 					<p className="text-muted-foreground leading-7">
-						I&apos;m a young fullstack developer with a passion for DevOps, constantly immersed in the captivating challenges of programming, Cloud
-						environments and system administration. Dynamic and avid for new technologies, I&apos;m constantly pushing my limits to design innovative
-						solutions.
-					</p>
-					<p className="text-muted-foreground leading-7">
-						Currently an intern at DigiImmo as a Fullstack engineer, I&apos;m developing an innovative ERP for the real estate industry using
+						My last position was an internship at Studio3d as a Fullstack engineer, developing an innovative ERP for the real estate industry using
 						cutting-edge technologies such as <Code>react</Code>, <Code>zustand</Code>, <Code>next</Code>, <Code>@mui/material</Code>,<Code>swr</Code>
 						, <Code>laravel</Code>, <Code>mysql</Code>, and <Code>docker</Code>.
 					</p>

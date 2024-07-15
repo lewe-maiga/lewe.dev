@@ -1,11 +1,11 @@
+import { posts } from "./source";
+
 const WEBSITE_HOST_URL = "https://www.lewe.dev";
 
-const allPosts: any[] = [];
-
 export default async function sitemap() {
-	const posts = allPosts.map((post) => ({
-		url: `${WEBSITE_HOST_URL}/posts/${post._raw.flattenedPath}`,
-		lastModified: post.date,
+	const allPosts = posts.getPages().map((post) => ({
+		url: `${WEBSITE_HOST_URL}/${post.slugs[0]}`,
+		lastModified: post.data.date.toISOString().split("T")[0],
 	}));
 
 	const routes = ["", "posts"].map((route) => ({
@@ -13,5 +13,5 @@ export default async function sitemap() {
 		lastModified: new Date().toISOString().split("T")[0],
 	}));
 
-	return [...routes, ...posts];
+	return [...routes, ...allPosts];
 }
