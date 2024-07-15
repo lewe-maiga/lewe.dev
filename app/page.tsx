@@ -1,12 +1,12 @@
 import { posts } from "@/app/source";
+import { AnimatedBackground } from "@/components/animated-background";
 import { BentoGridThirdDemo } from "@/components/bento-grid";
 import BlurFade from "@/components/blur-fade";
 import { BorderBeam } from "@/components/border-beam";
-import { AnimatedBackground } from "@/components/layout/animated-background";
-import { Header } from "@/components/layout/header";
-import { PostCard } from "@/components/layout/post-card";
-import { Skills } from "@/components/layout/skills";
+import { Header } from "@/components/header";
+import { PostCard } from "@/components/post-card";
 import { ResumeCard } from "@/components/resume-card";
+import { Skills } from "@/components/skills";
 import { compareDesc } from "date-fns";
 import Link from "next/link";
 
@@ -19,11 +19,11 @@ const DATA = {
 			href: "#",
 			title: "Software Engineer",
 			logoUrl: "/studio3d.png",
-			start: "January 2021",
-			end: "April 2021",
+			start: "February 2024",
 			description:
 				"Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources in order to enable 2,000+ internal developers to instantly deploy their app databases to production. Wrote several scripts in Go to automate MySQL database failovers while maintaining master-slave replication topologies and keeping Zookeeper nodes consistent with changes.",
 		},
+
 		{
 			company: "Confledis SAS",
 			badges: [],
@@ -31,23 +31,10 @@ const DATA = {
 			href: "#",
 			title: "DevOps Engineer",
 			logoUrl: "/confledis.jpeg",
-			start: "May 2021",
-			end: "Oct 2022",
+			start: "May 2023",
+			end: "November 2023",
 			description:
 				"Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
-		},
-
-		{
-			company: "Maroconcept",
-			badges: [],
-			location: "Remote",
-			href: "#",
-			logoUrl: "https://api.dicebear.com/9.x/icons/svg?icon=building&backgroundColor=b6e3f4,c0aede,d1d4f9",
-			title: "Software Engineer",
-			start: "January 2020",
-			end: "April 2020",
-			description:
-				"Architected and wrote the entire MVP of the GeForce Now Cloud Gaming internal admin and A/B testing dashboard using React, Redux, TypeScript, and Python.",
 		},
 
 		{
@@ -57,15 +44,28 @@ const DATA = {
 			href: "#",
 			title: "Frontend Engineer",
 			logoUrl: "/confledis.jpeg",
-			start: "January 2018",
-			end: "April 2018",
+			start: "August 2022",
+			end: "January 2022",
 			description:
 				"Proposed and implemented an internal ruby API for sending/receiving commands to scooters over LTE networks. Developed a fully automated bike firmware update system to handle asynchronous firmware updates of over 100,000+ scooters worldwide, and provide progress reports in real-time using React, Ruby on Rails, PostgreSQL and AWS EC2 saving hundreds of developer hours.",
+		},
+
+		{
+			company: "Maroconcept",
+			badges: [],
+			location: "Remote",
+			href: "#",
+			logoUrl: "https://api.dicebear.com/9.x/icons/svg?icon=building&backgroundColor=b6e3f4,c0aede,d1d4f9",
+			title: "Software Engineer",
+			start: "June 2022",
+			end: "August 2022",
+			description:
+				"Architected and wrote the entire MVP of the GeForce Now Cloud Gaming internal admin and A/B testing dashboard using React, Redux, TypeScript, and Python.",
 		},
 	],
 };
 
-const BLUR_FADE_DELAY = 0.04;
+const BLUR_FADE_DELAY = 0.02;
 
 export default function Home() {
 	const sortedPost = posts
@@ -150,7 +150,7 @@ export default function Home() {
 				<footer>
 					<p className="text-sm text-muted-foreground">Copyright &copy; 2024 - Allewe Badra Aliyou MAIGA</p>
 				</footer>
-				<div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+				<div className="absolute inset-x-0 -top-40  -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-[40rem]" aria-hidden="true">
 					<div
 						className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr dark:from-cyan-400 from-cyan-700  dark:to-teal-400 to-teal-700  opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
 						style={{

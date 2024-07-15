@@ -1,5 +1,5 @@
-import { Meteors } from "../meteors";
-import { SparklesCore } from "../sparkles";
+import { Meteors } from "./meteors";
+import { SparklesCore } from "./sparkles";
 
 export function AnimatedBackground() {
 	return (
@@ -16,6 +16,7 @@ export function AnimatedBackground() {
 				className="w-full h-full"
 				particleColor="#FFFFFF"
 			/>
+			<div className="absolute inset-0 dark:bg-grid-white/[0.06] bg-grid-black/[0.04] [mask-image:linear-gradient(to_bottom,white_5%,transparent_70%)] pointer-events-none select-none"></div>
 		</div>
 	);
 }

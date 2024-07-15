@@ -7,8 +7,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { ModeToggle } from "../theme-switcher";
 import { Dock, DockIcon } from "./dock";
+import { ModeToggle } from "./theme-switcher";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -101,7 +101,7 @@ export function Navbar() {
 					<DockIcon key={item.href}>
 						<Tooltip>
 							<TooltipTrigger asChild>
-								<Link href={item.href} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 rounded-full")}>
+								<Link href={item.href} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), " rounded-full")}>
 									<item.icon className="size-4" />
 								</Link>
 							</TooltipTrigger>
@@ -116,8 +116,8 @@ export function Navbar() {
 					<DockIcon key={name}>
 						<Tooltip>
 							<TooltipTrigger asChild>
-								<Link href={social.url} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 rounded-full")}>
-									<social.icon className="size-4" />
+								<Link href={social.url} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), " rounded-full")}>
+									<social.icon className="size-[1.2rem]" />
 								</Link>
 							</TooltipTrigger>
 							<TooltipContent>

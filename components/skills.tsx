@@ -1,24 +1,24 @@
 import { cn } from "@/lib/utils";
-import BlurFade from "../blur-fade";
-import { AWSIcon } from "../icons/aws";
-import { DockerIcon } from "../icons/docker";
-import DynamodbIcon from "../icons/dynamodb";
-import { GithubactionsIcon } from "../icons/githubactions";
-import { GitlabIcon } from "../icons/gitlab";
-import { LaravelIcon } from "../icons/laravel";
-import MongodbIcon from "../icons/mongodb";
-import { MysqlIcon } from "../icons/mysql";
-import { NestjsIcon } from "../icons/nestjs";
-import { NextjsIcon } from "../icons/nextjs";
-import PostgresqlIcon from "../icons/postgresql";
-import { PythonIcon } from "../icons/python";
-import { ReactIcon } from "../icons/react";
-import { SassIcon } from "../icons/sass";
-import { SonarqubeIcon } from "../icons/sonarqube";
-import { TailwindcssIcon } from "../icons/tailwind";
-import { TerraformIcon } from "../icons/terraform";
-import { TypescriptIcon } from "../icons/typescript";
-import { VercelIcon } from "../icons/vercel";
+import BlurFade from "./blur-fade";
+import { AWSIcon } from "./icons/aws";
+import { DockerIcon } from "./icons/docker";
+import DynamodbIcon from "./icons/dynamodb";
+import { GithubactionsIcon } from "./icons/githubactions";
+import { GitlabIcon } from "./icons/gitlab";
+import { LaravelIcon } from "./icons/laravel";
+import MongodbIcon from "./icons/mongodb";
+import { MysqlIcon } from "./icons/mysql";
+import { NestjsIcon } from "./icons/nestjs";
+import { NextjsIcon } from "./icons/nextjs";
+import PostgresqlIcon from "./icons/postgresql";
+import { PythonIcon } from "./icons/python";
+import { ReactIcon } from "./icons/react";
+import { SassIcon } from "./icons/sass";
+import { SonarqubeIcon } from "./icons/sonarqube";
+import { TailwindcssIcon } from "./icons/tailwind";
+import { TerraformIcon } from "./icons/terraform";
+import { TypescriptIcon } from "./icons/typescript";
+import { VercelIcon } from "./icons/vercel";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -82,7 +82,10 @@ type SkillItemProps = {
 };
 function SkillItem({ label, Icon, iconClassName }: SkillItemProps) {
 	return (
-		<div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background h-10 px-2 py-2 gap-2 group/skill cursor-pointer hover:bg-foreground/20 hover:text-accent-foreground  dark:border dark:bg-white/5 dark:hover:bg-white/20 dark:text-muted-foreground">
+		<div
+			className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background h-10 px-2 py-2 gap-2 group/skill hover:text-accent-foreground   dark:text-muted-foreground dark:bg-[rgba(40,40,40)]
+      hover:bg-accent/20 hover:scale-[0.98] dark:border dark:hover:bg-white/10 overflow-hidden dark:bg-[rgba(40,40,40,0.5)] relative dark:border-[rgba(255,_255,_255,_0.20)] dark:shadow-[0px_0px_8px_0px_rgba(248,248,248,0.08)_inset,0px_32px_24px_-16px_rgba(0,_0,_0,_0.40)_inset] transition-colors duration-200"
+		>
 			<Icon className={cn("size-5 group-hover/skill:animate-pulse", iconClassName)} />
 			{label}
 		</div>

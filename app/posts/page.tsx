@@ -1,5 +1,5 @@
-import { AnimatedBackground } from "@/components/layout/animated-background";
-import { PostCard } from "@/components/layout/post-card";
+import { AnimatedBackground } from "@/components/animated-background";
+import { PostCard } from "@/components/post-card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";

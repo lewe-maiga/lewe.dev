@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Box, File, Headphones, SendToBackIcon, Signature, TableColumnsSplit } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useId } from "react";
 import { StrapiIcon } from "./icons/strapi";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardTitle } from "./ui/card";
@@ -16,11 +16,12 @@ export const BentoGridItem = ({ className, title, description, header, icon, tag
 	return (
 		<Card
 			className={cn(
-				"row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input  p-4 border border-transparent justify-between flex flex-col space-y-4",
+				"row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input  p-4 border border-transparent justify-between flex flex-col space-y-4 relative overflow-hidden",
 				className
 			)}
 		>
 			{header}
+			{/* <Grid size={20} /> */}
 			<CardContent className="group-hover/bento:translate-x-2 max-md:space-y-3 transition duration-200 px-0 pb-0">
 				{icon}
 				<CardTitle className="font-sans font-bold text-base mb-2 mt-2">{title}</CardTitle>
@@ -35,7 +36,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export function BentoGridThirdDemo() {
 	return (
-		<BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] mt-4 relative">
+		<BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] relative">
 			{items.map((item, i) => (
 				// <BlurFade key={i} delay={BLUR_FADE_DELAY * 6 + i * 0.05}>
 				<BentoGridItem
@@ -73,7 +74,7 @@ const SkeletonOne = () => {
 				repeat: Infinity,
 				repeatType: "reverse",
 			}}
-			className="flex flex-1 w-full h-full md:min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2 min-h-[12rem] "
+			className="flex flex-1 w-full h-full md:min-h-[6rem]  rounded-lg  flex-col space-y-2 min-h-[12rem] "
 			style={{
 				background: "linear-gradient(-45deg, #4945FF, #fff, #fff, #9593FF)",
 				backgroundSize: "400% 400%",
@@ -134,7 +135,7 @@ const SkeletonThree = () => {
 				repeat: Infinity,
 				repeatType: "reverse",
 			}}
-			className="flex flex-1 w-full h-full md:min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2 min-h-[12rem] "
+			className="flex flex-1 w-full h-full md:min-h-[6rem]  rounded-lg  flex-col space-y-2 min-h-[12rem] "
 			style={{
 				background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
 				backgroundSize: "400% 400%",
@@ -170,7 +171,7 @@ const SkeletonFour = () => {
 			initial="initial"
 			animate="animate"
 			whileHover="hover"
-			className="flex flex-1 w-full h-full md:min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2 min-h-[12rem]"
+			className="flex flex-1 w-full h-full md:min-h-[6rem]   flex-row space-x-2 min-h-[12rem]"
 		>
 			<motion.div variants={first} className="h-full w-1/3 rounded-2xl bg-background p-4  border  flex flex-col items-center justify-center">
 				<div className="w-10 h-10">
@@ -216,11 +217,7 @@ const SkeletonFive = () => {
 	};
 
 	return (
-		<motion.div
-			initial="initial"
-			whileHover="animate"
-			className="flex flex-1 w-full h-full md:min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 min-h-[12rem]"
-		>
+		<motion.div initial="initial" whileHover="animate" className="flex flex-1 w-full h-full md:min-h-[6rem]   flex-col space-y-2 min-h-[12rem]">
 			<motion.div variants={variants} className="flex flex-row rounded-2xl border  p-2  items-start space-x-2 bg-background">
 				<Image src="/profile.jpg" alt="avatar" height="100" width="100" className="rounded-full h-10 w-10" />
 				<p className="text-xs text-muted-foreground">
@@ -298,3 +295,49 @@ const items: Item[] = [
 		url: "",
 	},
 ];
+
+export const Grid = ({ pattern, size }: { pattern?: number[][]; size?: number }) => {
+	const p = pattern ?? [
+		[Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+		[Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+		[Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+		[Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+		[Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+	];
+	return (
+		<div className="pointer-events-none absolute left-1/2 top-0  -ml-20 -mt-2 h-full w-full [mask-image:linear-gradient(white,transparent)]">
+			<div className="absolute inset-0 bg-gradient-to-r [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-zinc-900/30 from-zinc-100/30 to-zinc-300/30 dark:to-zinc-900/30 opacity-100">
+				<GridPattern
+					width={size ?? 20}
+					height={size ?? 20}
+					x="-12"
+					y="4"
+					squares={p}
+					className="absolute inset-0 h-full w-full  mix-blend-overlay dark:fill-white/10 dark:stroke-white/10 stroke-black/10 fill-black/10"
+				/>
+			</div>
+		</div>
+	);
+};
+
+export function GridPattern({ width, height, x, y, squares, ...props }: any) {
+	const patternId = useId();
+
+	return (
+		<svg aria-hidden="true" {...props}>
+			<defs>
+				<pattern id={patternId} width={width} height={height} patternUnits="userSpaceOnUse" x={x} y={y}>
+					<path d={`M.5 ${height}V.5H${width}`} fill="none" />
+				</pattern>
+			</defs>
+			<rect width="100%" height="100%" strokeWidth={0} fill={`url(#${patternId})`} />
+			{squares && (
+				<svg x={x} y={y} className="overflow-visible">
+					{squares.map(([x, y]: any) => (
+						<rect strokeWidth="0" key={`${x}-${y}`} width={width + 1} height={height + 1} x={x * width} y={y * height} />
+					))}
+				</svg>
+			)}
+		</svg>
+	);
+}
