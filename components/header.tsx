@@ -27,11 +27,6 @@ export const Header = () => {
 				<section className="flex flex-col gap-4">
 					<h3 className="font-medium">About me</h3>
 					<p className="text-muted-foreground leading-7">{CONFIG.summary}</p>
-					<p className="text-muted-foreground leading-7">
-						My last position was an internship at Studio3d as a Fullstack engineer, developing an innovative ERP for the real estate industry using
-						cutting-edge technologies such as <Code>react</Code>, <Code>zustand</Code>, <Code>next</Code>, <Code>@mui/material</Code>,<Code>swr</Code>
-						, <Code>laravel</Code>, <Code>mysql</Code>, and <Code>docker</Code>.
-					</p>
 				</section>
 			</div>
 		</header>
