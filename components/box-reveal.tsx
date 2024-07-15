@@ -49,6 +49,7 @@ export const BoxReveal = ({ children, width = "fit-content", boxColor, duration 
 				initial="hidden"
 				animate={slideControls}
 				transition={{ duration: duration ? duration : 0.5, ease: "easeIn" }}
+				className="rounded-full"
 				style={{
 					position: "absolute",
 					top: 4,

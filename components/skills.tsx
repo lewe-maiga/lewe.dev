@@ -43,7 +43,7 @@ export const Skills = () => {
 							</div>
 						</div>
 					</BlurFade>
-					<BlurFade delay={BLUR_FADE_DELAY * 4}>
+					<BlurFade delay={BLUR_FADE_DELAY * 2} inView>
 						<div className="space-y-2">
 							<h4 className="font-medium">Database</h4>
 							<div className="flex flex-wrap gap-2 items-start mt-1">
@@ -54,7 +54,7 @@ export const Skills = () => {
 							</div>
 						</div>
 					</BlurFade>
-					<BlurFade delay={BLUR_FADE_DELAY * 5}>
+					<BlurFade delay={BLUR_FADE_DELAY * 4} inView>
 						<div className="space-y-2">
 							<h4 className="font-medium">DevOps</h4>
 							<div className="flex flex-wrap gap-2 items-start mt-1">
