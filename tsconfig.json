@@ -34,9 +34,10 @@
     "**/*.tsx",
     "**/*.mdx",
     ".next/types/**/*.ts",
-    ".draft/test-blog.mdx",
+    "content/posts/test-blog.mdx",
     ".draft/why-blog.mdx",
     ".draft/behind-the-scenes-tech-stack.mdx",
+    ".draft/about-blog.mdx",
   ],
   "exclude": [
     "node_modules"
