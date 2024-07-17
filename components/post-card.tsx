@@ -13,7 +13,7 @@ export function PostCard({ post }: Props) {
 	return (
 		<li>
 			<Link href={post.url}>
-				<Card className="px-4 py-5  group/post hover:bg-muted/20 dark:border bg-card dark:hover:bg-white/10 overflow-hidden dark:bg-[rgba(40,40,40,0.5)] relative dark:border-[rgba(255,_255,_255,_0.20)] dark:shadow-[0px_0px_8px_0px_rgba(248,248,248,0.08)_inset,0px_32px_24px_-16px_rgba(0,_0,_0,_0.40)_inset] transition hover:scale-[0.98] duration-200">
+				<Card className="px-4 py-5  group/post hover:bg-muted/20 dark:border bg-card dark:hover:bg-white/10 overflow-hidden dark:bg-[rgba(40,40,40,0.5)] relative dark:border-[rgba(255,_255,_255,_0.20)] dark:shadow-[0px_0px_8px_0px_rgba(248,248,248,0.08)_inset,0px_32px_24px_-16px_rgba(0,_0,_0,_0.40)_inset] transition hover:scale-[0.98] duration-200 ease-in-out">
 					<Grid size={20} />
 					<div className="justify-between sm:flex">
 						<div className="flex-1 space-y-2">
