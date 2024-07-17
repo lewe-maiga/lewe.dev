@@ -9,12 +9,14 @@ import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import defaultComponents from "fumadocs-ui/mdx";
 import { Popup, PopupContent, PopupTrigger } from "fumadocs-ui/twoslash/popup";
 import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
+import { AspectRatio } from "./components/ui/aspect-ratio";
 import { cn } from "./lib/utils";
-
 export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
 		...defaultComponents,
 		...components,
+		ImageZoom,
 		Popup,
 		PopupContent,
 		PopupTrigger,
@@ -39,7 +41,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		File,
 		Folder,
 		Files,
-		img: ({ src, alt, className }) => <ImageZoom src={src || ""} alt={alt || ""} className={cn("object-cover rounded", className)} />,
+		Image: ({ src, alt, className }: { src: string; alt: string; className?: string }) => (
+			<AspectRatio ratio={16 / 12} className="bg-muted relative rounded overflow-hidden">
+				<Image src={src} alt={alt} className={cn("object-cover", className)} fill />
+			</AspectRatio>
+		),
 		h1: (props) => <Heading as="h1" {...props} />,
 		h2: (props) => <Heading as="h2" {...props} />,
 		h3: (props) => <Heading as="h3" {...props} />,

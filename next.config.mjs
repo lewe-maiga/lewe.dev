@@ -6,6 +6,7 @@ import createMDX from "fumadocs-mdx/config";
 import { transformerTwoslash } from "fumadocs-twoslash";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import remarkUnwrapImages from "remark-unwrap-images";
 
 const withAnalyzer = createBundleAnalyzer({
 	enabled: process.env.ANALYZE === "true",
@@ -76,6 +77,7 @@ const withMDX = createMDX({
 			remarkMath,
 			[remarkInstall, { persist: { id: "package-manager" } }],
 			[remarkDocGen, { generators: [typescriptGenerator(), fileGenerator()] }],
+			remarkUnwrapImages,
 		],
 		rehypePlugins: (v) => [rehypeKatex, ...v],
 	},

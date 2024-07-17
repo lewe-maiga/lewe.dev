@@ -15,24 +15,17 @@ import { ScrollArea } from "./ui/scroll-area";
 type PosType = [top: number, height: number];
 interface TOCProps {
 	items: TOCItemType[];
-
-	/**
-	 * Custom content in TOC container, before the main TOC
-	 */
 	header?: ReactNode;
-	/**
-	 * Custom content in TOC container, after the main TOC
-	 */
 	footer?: ReactNode;
 }
 
 const TocProvider = Primitive.AnchorProvider;
 
-export function Toc({ items, header, footer }: TOCProps): ReactElement {
+function Toc({ items, header, footer }: TOCProps): ReactElement {
 	return (
 		<div className="relative flex h-dvh w-40 shrink-0 flex-col gap-4 pe-2 pt-12 max-lg:hidden xl:w-[260px] mb-6 ml-6 p-0 ">
 			{header}
-			<h3 className="-mb-1 -ms-0.5 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+			<h3 className="-mb-1 -ms-0.5 inline-flex items-center gap-1.5 text-sm font-geist text-muted-foreground">
 				<Text className="size-4" />
 				On this page
 			</h3>
@@ -83,7 +76,7 @@ function TOCItem({ item, setMarker }: { item: TOCItemType; setMarker: (v: PosTyp
 				if (active && element) setMarker([element.offsetTop, element.clientHeight]);
 			}}
 			className={cn(
-				"py-1 transition-colors data-[active=true]:font-medium text-wrap line-clamp-2 data-[active=true]:text-primary",
+				"py-1 transition-colors data-[active=true]:font-medium text-wrap line-clamp-2 data-[active=true]:text-primary text-sm",
 				item.depth <= 2 && "ps-4",
 				item.depth === 3 && "ps-7",
 				item.depth >= 4 && "ps-10"

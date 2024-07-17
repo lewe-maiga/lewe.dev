@@ -21,46 +21,46 @@ export const CONFIG = {
 			start: "February 2024",
 			end: "July 2024",
 			description:
-				"Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources in order to enable 2,000+ internal developers to instantly deploy their app databases to production. Wrote several scripts in Go to automate MySQL database failovers while maintaining master-slave replication topologies and keeping Zookeeper nodes consistent with changes.",
+				"Responsible for the development of an innovative ERP for the real estate industry using PHP Laravel for the backend and Next.js for the frontend. I reduced technical debt by refactoring code and fixing bugs, thus improving response times. I also created several landing pages and deployed projects on O2switch servers.",
 		},
 
 		{
 			company: "Confledis SAS",
 			badges: [],
-			location: "Remote",
+			location: "Paris, France - Remote",
 			href: "#",
 			title: "DevOps Engineer",
 			logoUrl: "/confledis.jpeg",
 			start: "May 2023",
 			end: "November 2023",
 			description:
-				"Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
+				"As DevOps, I orchestrated the complete infrastructure and deployments of frontend and backend applications on AWS. I planned and deployed test and production environments using AWS CloudFormation and configured the VPC (Virtual Private Cloud) to ensure security and resource isolation. I led the migration from GitLab to AWS CodeCommit to centralize version control. I automated deployments with CI/CD pipelines via AWS CodePipeline, integrated Docker for application containerization, and managed images with AWS ECR. Finally, I developed a custom CLI to simplify developers' day-to-day tasks.",
 		},
 
 		{
 			company: "Confledis SAS",
 			badges: [],
-			location: "Remote",
+			location: "Paris, France - Remote",
 			href: "#",
 			title: "Frontend Engineer",
 			logoUrl: "/confledis.jpeg",
 			start: "August 2022",
 			end: "January 2022",
 			description:
-				"Proposed and implemented an internal ruby API for sending/receiving commands to scooters over LTE networks. Developed a fully automated bike firmware update system to handle asynchronous firmware updates of over 100,000+ scooters worldwide, and provide progress reports in real-time using React, Ruby on Rails, PostgreSQL and AWS EC2 saving hundreds of developer hours.",
+				"Responsible for backend development with AWS Amplify for an e-tourism application allowing users to book sessions with the company's partners. I set up a monorepo architecture with NX and integrated the model with ReactJS to ensure a fluid and consistent user experience.",
 		},
 
 		{
 			company: "Maroconcept",
 			badges: [],
-			location: "Remote",
+			location: "Safi, Morocco - Remote",
 			href: "#",
-			logoUrl: "https://api.dicebear.com/9.x/icons/svg?icon=building&backgroundColor=b6e3f4,c0aede,d1d4f9",
+			logoUrl: "https://api.dicebear.com/9.x/icons/svg?icon=building&backgroundColor=15c16e",
 			title: "Software Engineer",
 			start: "June 2022",
 			end: "August 2022",
 			description:
-				"Architected and wrote the entire MVP of the GeForce Now Cloud Gaming internal admin and A/B testing dashboard using React, Redux, TypeScript, and Python.",
+				"Design and development of a videoconferencing application for integration into a project management solution. Responsible for the MySQL database, the WebSocket communication architecture with SocketIO and KoaJS, and the user interface with ReactJS.",
 		},
 	],
 };

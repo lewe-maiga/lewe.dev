@@ -10,6 +10,8 @@ type Props = {
 	post: InferPageType<typeof posts>;
 };
 export function PostCard({ post }: Props) {
+	console.log({ post });
+
 	return (
 		<li>
 			<Link href={post.url}>

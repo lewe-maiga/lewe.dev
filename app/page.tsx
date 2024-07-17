@@ -5,8 +5,8 @@ import BlurFade from "@/components/blur-fade";
 import { BorderBeam } from "@/components/border-beam";
 import { Header } from "@/components/header";
 import { PostCard } from "@/components/post-card";
-import { ResumeCard } from "@/components/resume-card";
 import { Skills } from "@/components/skills";
+import { WorkCard } from "@/components/work-card";
 import { CONFIG } from "@/data/config";
 import { compareDesc } from "date-fns";
 import Link from "next/link";
@@ -26,24 +26,38 @@ export default function Home() {
 				<Header />
 				<section id="work" className="max-w-2xl px-4">
 					<div className="flex min-h-0 flex-col gap-4">
-						<BlurFade delay={BLUR_FADE_DELAY + 0.05} inView>
+						<BlurFade delay={BLUR_FADE_DELAY + 0.05}>
 							<h3 className="font-medium">Work Experience</h3>
 						</BlurFade>
-						{CONFIG.work.map((work, id) => (
-							<BlurFade key={work.company} inView delay={BLUR_FADE_DELAY + id * 0.005}>
-								<ResumeCard
-									key={work.company}
-									logoUrl={work.logoUrl}
-									altText={work.company}
-									title={work.company}
-									subtitle={work.title}
-									href={work.href}
-									badges={work.badges}
-									period={`${work.start} - ${work.end ?? "Present"}`}
-									description={work.description}
-								/>
-							</BlurFade>
-						))}
+						<BlurFade delay={BLUR_FADE_DELAY + 0.05}>
+							<ul className="mb-4 ml-4 divide-y divide-dashed border-l">
+								{CONFIG.work.map((work, id) => (
+									// <BlurFade key={work.company} inView delay={BLUR_FADE_DELAY + id * 0.005}>
+									// 	<ResumeCard
+									// 		key={work.company}
+									// 		logoUrl={work.logoUrl}
+									// 		altText={work.company}
+									// 		title={work.company}
+									// 		subtitle={work.title}
+									// 		href={work.href}
+									// 		badges={work.badges}
+									// 		period={`${work.start} - ${work.end ?? "Present"}`}
+									// 		description={work.description}
+									// 	/>
+									// </BlurFade>
+									<BlurFade key={work.title + work.start} delay={BLUR_FADE_DELAY + id * 0.05}>
+										<WorkCard
+											title={work.title}
+											description={work.description}
+											location={work.location}
+											dates={`${work.start} - ${work.end ?? "Present"}`}
+											image={work.logoUrl}
+											// links={work.links}
+										/>
+									</BlurFade>
+								))}
+							</ul>
+						</BlurFade>
 					</div>
 				</section>
 
@@ -74,7 +88,7 @@ export default function Home() {
 
 				<section id="contact">
 					<div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full">
-						<BlurFade delay={BLUR_FADE_DELAY} inView>
+						<BlurFade delay={BLUR_FADE_DELAY}>
 							<div className="space-y-3">
 								<h2 className="text-xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
 								<p className="mx-auto max-w-2xl text-sm text-muted-foreground">
