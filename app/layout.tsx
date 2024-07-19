@@ -27,11 +27,13 @@ export const metadata: Metadata = {
 	description: CONFIG.description,
 	metadataBase: new URL(CONFIG.url),
 
-	twitter: {
-		card: "summary_large_image",
+	openGraph: {
 		title: CONFIG.name,
 		description: CONFIG.description,
-		creator: "@lewe_maiga",
+		url: new URL(CONFIG.url),
+		siteName: CONFIG.name,
+		locale: "en-US",
+		type: "website",
 		images: [
 			{
 				url: "https://lewe.dev/og.png",
@@ -40,13 +42,10 @@ export const metadata: Metadata = {
 			},
 		],
 	},
-
-	openGraph: {
+	twitter: {
+		card: "summary_large_image",
 		title: CONFIG.name,
 		description: CONFIG.description,
-		url: new URL(CONFIG.url),
-		siteName: CONFIG.name,
-		countryName: "Morocco",
 		images: [
 			{
 				url: "https://lewe.dev/og.png",
@@ -54,8 +53,6 @@ export const metadata: Metadata = {
 				height: 700,
 			},
 		],
-		locale: "en-US",
-		type: "website",
 	},
 };
 

@@ -1,11 +1,29 @@
 import { AnimatedBackground } from "@/components/animated-background";
 import { PostCard } from "@/components/post-card";
+import { CONFIG } from "@/data/config";
 import { compareDesc } from "date-fns";
+import { Metadata } from "next";
 import { posts } from "../source";
 
-export const metadata = {
-	title: "Lewe Maiga - Posts",
-	description: "My personal blog",
+const title = "Lewe Maiga - Posts";
+const description = "My personal blog";
+const url = new URL("/posts", CONFIG.url);
+
+export const metadata: Metadata = {
+	title,
+	description,
+	openGraph: {
+		title,
+		description,
+		url,
+	},
+	twitter: {
+		title,
+		description,
+	},
+	alternates: {
+		canonical: CONFIG.url,
+	},
 };
 
 export default function Page() {
