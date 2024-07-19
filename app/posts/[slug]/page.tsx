@@ -11,7 +11,6 @@ export const generateStaticParams = async () => posts.getPages().map((post) => (
 export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
 	const post = posts.getPages().find((post) => post.slugs[0] === params.slug);
 	if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
-	console.log(new URL(post.url, CONFIG.url));
 
 	return {
 		title: post.data.title,
