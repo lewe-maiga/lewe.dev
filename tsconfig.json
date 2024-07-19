@@ -35,9 +35,9 @@
     "**/*.mdx",
     ".next/types/**/*.ts",
     "content/posts/test-blog.mdx",
-    ".draft/why-blog.mdx",
+    "content/posts/why-blog.mdx",
     ".draft/behind-the-scenes-tech-stack.mdx",
-    ".draft/about-blog.mdx",
+    ".draft/from-geeky-teen-to-fullstack-developer-and-devops-my-journey.mdx",
   ],
   "exclude": [
     "node_modules"

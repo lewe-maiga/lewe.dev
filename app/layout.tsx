@@ -3,7 +3,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { CONFIG } from "@/data/config";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
-import { Banner } from "fumadocs-ui/components/banner";
 import { RootProvider } from "fumadocs-ui/provider";
 import "fumadocs-ui/twoslash.css";
 import { GeistSans } from "geist/font/sans";
@@ -78,7 +77,7 @@ export default function Page({
 				<RootProvider>
 					<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
 						<TooltipProvider>
-							<Banner className="sticky top-0 z-50">Website under construction</Banner>
+							{/* <Banner className="sticky top-0 z-50">Website under construction</Banner> */}
 							{children}
 							<Navbar />
 						</TooltipProvider>

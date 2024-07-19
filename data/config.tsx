@@ -1,7 +1,7 @@
 export const CONFIG = {
 	name: "Lewe Maiga",
 	bio: "Software Engineer and DevOps",
-	fullname: "Allewe Badra Aliyou MAIGA",
+	fullName: "Allewe Badra Aliyou MAIGA",
 	initials: "LM",
 	description: "This is my portfolio, designed to showcase my work to the world online, and also my personal blog to share recent discoveries.",
 	summary:

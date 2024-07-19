@@ -18,7 +18,7 @@ export const Header = () => {
 					</BoxReveal>
 					<div className="space-y-1">
 						<BoxReveal boxColor="#15c16ea1" duration={BOX_REVEAL_DURATION}>
-							<h1 className="scroll-m-20 text-lg md:text-3xl font-extrabold tracking-tight">{CONFIG.fullname}</h1>
+							<h1 className="scroll-m-20 text-lg md:text-3xl font-extrabold tracking-tight">{CONFIG.fullName}</h1>
 						</BoxReveal>
 						<BoxReveal boxColor="#15c16ea1" duration={BOX_REVEAL_DURATION}>
 							<p className="text-sm text-muted-foreground">{CONFIG.bio}</p>

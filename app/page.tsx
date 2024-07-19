@@ -3,6 +3,7 @@ import { AnimatedBackground } from "@/components/animated-background";
 import { BentoGridThirdDemo } from "@/components/bento-grid";
 import BlurFade from "@/components/blur-fade";
 import { BorderBeam } from "@/components/border-beam";
+import { Each } from "@/components/each";
 import { Header } from "@/components/header";
 import { PostCard } from "@/components/post-card";
 import { Skills } from "@/components/skills";
@@ -31,31 +32,19 @@ export default function Home() {
 						</BlurFade>
 						<BlurFade delay={BLUR_FADE_DELAY + 0.05}>
 							<ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-								{CONFIG.work.map((work, id) => (
-									// <BlurFade key={work.company} inView delay={BLUR_FADE_DELAY + id * 0.005}>
-									// 	<ResumeCard
-									// 		key={work.company}
-									// 		logoUrl={work.logoUrl}
-									// 		altText={work.company}
-									// 		title={work.company}
-									// 		subtitle={work.title}
-									// 		href={work.href}
-									// 		badges={work.badges}
-									// 		period={`${work.start} - ${work.end ?? "Present"}`}
-									// 		description={work.description}
-									// 	/>
-									// </BlurFade>
-									<BlurFade key={work.title + work.start} delay={BLUR_FADE_DELAY + id * 0.05}>
-										<WorkCard
-											title={work.title}
-											description={work.description}
-											location={work.location}
-											dates={`${work.start} - ${work.end ?? "Present"}`}
-											image={work.logoUrl}
-											// links={work.links}
-										/>
-									</BlurFade>
-								))}
+								<Each of={CONFIG.work}>
+									{(work, id) => (
+										<BlurFade key={work.title + work.start} delay={BLUR_FADE_DELAY + id * 0.05}>
+											<WorkCard
+												title={work.title}
+												description={work.description}
+												location={work.location}
+												dates={`${work.start} - ${work.end ?? "Present"}`}
+												image={work.logoUrl}
+											/>
+										</BlurFade>
+									)}
+								</Each>
 							</ul>
 						</BlurFade>
 					</div>
@@ -79,9 +68,7 @@ export default function Home() {
 						<h3 className="font-medium text-lg">Explore my posts</h3>
 						<p className="text-muted-foreground text-sm mt-2">These are some of the posts I&apos;ve written.</p>
 						<ul className="space-y-6 mt-2">
-							{sortedPost.map((post) => (
-								<PostCard key={post.url} post={post} />
-							))}
+							<Each of={sortedPost}>{(post) => <PostCard key={post.url} post={post} />}</Each>
 						</ul>
 					</div>
 				</section>
@@ -108,7 +95,7 @@ export default function Home() {
 				</section>
 
 				<footer>
-					<p className="text-sm text-muted-foreground">Copyright &copy; 2024 - Allewe Badra Aliyou MAIGA</p>
+					<p className="text-sm text-muted-foreground">Copyright &copy; 2024 - {CONFIG.fullName}</p>
 				</footer>
 				<div className="absolute inset-x-0 -top-40  -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-[40rem]" aria-hidden="true">
 					<div

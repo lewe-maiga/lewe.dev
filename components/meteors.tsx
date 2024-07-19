@@ -1,10 +1,11 @@
 import { cn } from "@/lib/utils";
+import { Each } from "./each";
 
 export const Meteors = ({ number, className }: { number?: number; className?: string }) => {
 	const meteors = new Array(number || 20).fill(true);
 	return (
-		<>
-			{meteors.map((el, idx) => (
+		<Each of={meteors}>
+			{(el, idx) => (
 				<span
 					key={"meteor" + idx}
 					className={cn(
@@ -19,7 +20,7 @@ export const Meteors = ({ number, className }: { number?: number; className?: st
 						animationDuration: Math.floor(Math.random() * (10 - 2) + 2) + "s",
 					}}
 				></span>
-			))}
-		</>
+			)}
+		</Each>
 	);
 };

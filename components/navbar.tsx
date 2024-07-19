@@ -8,11 +8,11 @@ import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { Dock, DockIcon } from "./dock";
-import { ModeToggle } from "./theme-switcher";
+import { ModeToggle } from "./mode-toggle";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
-const Icons = {
+export const Icons = {
 	calendar: (props: IconProps) => <CalendarIcon {...props} />,
 	email: (props: IconProps) => <MailIcon {...props} />,
 	linkedin: (props: IconProps) => (

@@ -1,7 +1,7 @@
 import { posts } from "@/app/source";
-import { CardDemo } from "@/components/card-demo";
 import { ReadProgress } from "@/components/read-progess";
 import { TableOfContent } from "@/components/table-of-content";
+import { CONFIG } from "@/data/config";
 import { format } from "date-fns";
 import { DocsBody } from "fumadocs-ui/page";
 import { Metadata } from "next";
@@ -14,6 +14,12 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
 	return {
 		title: post.data.title,
 		description: post.data.description,
+		authors: [
+			{
+				name: CONFIG.name,
+				url: new URL(CONFIG.url),
+			},
+		],
 		openGraph: {
 			title: post.data.title,
 			description: post.data.description,
@@ -43,7 +49,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
 				</div>
 
 				<DocsBody>
-					<MDXContent components={{ CardDemo }} />
+					<MDXContent />
 				</DocsBody>
 				<TableOfContent toc={post.data.exports.toc} />
 			</div>
